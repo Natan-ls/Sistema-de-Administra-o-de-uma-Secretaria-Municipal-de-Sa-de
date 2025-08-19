@@ -88,4 +88,5 @@ public class Pessoa {
     public void setPaciente(Paciente paciente) {
         this.paciente = paciente;
     }
+
 }

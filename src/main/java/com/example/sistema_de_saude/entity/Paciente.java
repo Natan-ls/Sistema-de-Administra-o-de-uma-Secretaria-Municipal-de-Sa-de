@@ -2,6 +2,9 @@ package com.example.sistema_de_saude.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @DiscriminatorValue("Paciente")
@@ -17,6 +20,8 @@ public class Paciente {
     @JoinColumn(name = "fkPessoa", referencedColumnName = "id")
     private Pessoa pessoa;
 
+    @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Consulta> consultas = new ArrayList<>();
 
     public Long getId() {
         return id;
@@ -40,5 +45,22 @@ public class Paciente {
 
     public void setPessoa(Pessoa pessoa) {
         this.pessoa = pessoa;
+    }
+
+    public List<Consulta> getConsultas() {
+        return consultas;
+    }
+
+    public void setConsultas(List<Consulta> consultas) {
+        this.consultas = consultas;
+    }
+
+    @Override
+    public String toString() {
+        return "Paciente{" +
+                "numeroSus='" + numeroSus + '\'' +
+                ", pessoa=" + pessoa +
+                ", consultas=" + consultas +
+                '}';
     }
 }
