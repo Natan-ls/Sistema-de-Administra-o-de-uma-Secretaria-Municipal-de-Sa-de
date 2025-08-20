@@ -6,7 +6,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
-
+//Testando git
 public class AdministradorDAO {
 
 
