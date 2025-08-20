@@ -15,6 +15,7 @@ public class Pessoa {
     private String email;
     private Date dataNascimento;
     private Character sexo;
+    private String telefone;
 
     @Column(unique = true, nullable = true)
     private String cpf;
@@ -24,6 +25,16 @@ public class Pessoa {
 
     @OneToOne(mappedBy = "pessoa")
     private Paciente paciente;
+
+    public Pessoa(){};
+
+    public Pessoa(String nome, String cpf , String email, Date dataNascimento, Character sexo){
+        this.nome = nome;
+        this.cpf = cpf;
+        this.email = email;
+        this.dataNascimento = dataNascimento;
+        this.sexo = sexo;
+    }
 
     public void setId(Long id) {
         this.id = id;
@@ -65,9 +76,7 @@ public class Pessoa {
         this.funcionario = funcionario;
     }
 
-    public Character getSexo() {
-        return sexo;
-    }
+    public Character getSexo() {return sexo; }
 
     public void setSexo(Character sexo) {
         this.sexo = sexo;
@@ -89,4 +98,7 @@ public class Pessoa {
         this.paciente = paciente;
     }
 
+    public String getTelefone() {return telefone;}
+
+    public void setTelefone(String telefone) {this.telefone = telefone; }
 }
