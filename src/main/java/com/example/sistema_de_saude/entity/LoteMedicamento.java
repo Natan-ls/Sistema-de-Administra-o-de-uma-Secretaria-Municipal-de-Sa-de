@@ -21,6 +21,15 @@ public class LoteMedicamento {
     private int quantidadeEntrada;
     private int quantidadeEstoque;
 
+    @Enumerated(EnumType.STRING)
+    private StatusLote status;
+
+    public enum StatusLote {
+        VENCIDO,      // Data de validade expirada
+        DISPONIVEL,   // Dentro da validade e com estoque
+        ESGOTADO      // Dentro da validade mas sem estoque
+    }
+
     public Long getId() {
         return id;
     }
@@ -68,4 +77,30 @@ public class LoteMedicamento {
     public void setQuantidadeEstoque(int quantidadeEstoque) {
         this.quantidadeEstoque = quantidadeEstoque;
     }
+
+    public StatusLote getStatus() {return status; }
+
+    public void setStatus(StatusLote status) {this.status = status; }
+
+    public void atualizarStatus() {
+        Date hoje = new Date();
+
+        if (dataValidade != null && dataValidade.before(hoje)) {
+            this.status = StatusLote.VENCIDO;
+        } else if (quantidadeEstoque <= 0) {
+            this.status = StatusLote.ESGOTADO;
+        } else {
+            this.status = StatusLote.DISPONIVEL;
+        }
+    }
+
+    public void diminuirEstoque(int quantidade) {
+        if (quantidade > 0 && this.quantidadeEstoque >= quantidade) {
+            this.quantidadeEstoque -= quantidade;
+            this.atualizarStatus();
+        } else {
+            throw new IllegalArgumentException("Quantidade inválida ou estoque insuficiente");
+        }
+    }
+
 }
