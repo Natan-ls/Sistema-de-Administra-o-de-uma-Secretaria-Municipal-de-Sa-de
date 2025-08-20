@@ -13,7 +13,9 @@ public class Funcionario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     protected Long id;
     protected Date dataAdimissao;
-    protected String matricula;
+
+    @Column(unique = true, nullable = false)
+    public int matricula;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "fkPessoa", referencedColumnName = "id")
@@ -21,6 +23,13 @@ public class Funcionario {
 
     @OneToOne(mappedBy = "funcionario")
     private UsuarioSistema user;
+
+    public Funcionario(){};
+
+    public Funcionario(Date dataAdimissao, int matricula){
+        this.dataAdimissao = dataAdimissao;
+        this.matricula = matricula;
+    };
 
     public void setId(Long id) {
         this.id = id;
@@ -38,11 +47,11 @@ public class Funcionario {
         return dataAdimissao;
     }
 
-    public String getMatricula() {
+    public int getMatricula() {
         return matricula;
     }
 
-    public void setMatricula(String matricula) {
+    public void setMatricula(int matricula) {
         this.matricula = matricula;
     }
 

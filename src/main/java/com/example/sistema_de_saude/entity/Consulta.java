@@ -14,16 +14,27 @@ public class Consulta {
     private Date dataConsulta;
     private String descricao;
 
+    @Enumerated(EnumType.STRING)
+    private StatusConsulta status;
+
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fkPaciente", nullable = false)
     private Paciente paciente;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkMedico")
+    @JoinColumn(name = "fkMedico", nullable = false)
     private Medico medico;
 
+    @OneToOne
+    @JoinColumn(name = "fkProtocolo", referencedColumnName = "id")
+    private Protocolo protocolo;
+
+    public StatusConsulta getStatus() {return status; }
+
+    public void setStatus(StatusConsulta status) {this.status = status; }
+
     public enum StatusConsulta {
-        EM_ATENDIMENTO, REALIZADA, CANCELADA
+        EM_ATENDIMENTO, CONFIRMADA, REALIZADA, CANCELADA
     }
 
     public Long getId() {
@@ -66,6 +77,14 @@ public class Consulta {
         this.medico = medico;
     }
 
+    public void setProtocolo(Protocolo protocolo) {
+        this.protocolo = protocolo;
+    }
+
+    public Protocolo getProtocolo() {
+        return protocolo;
+    }
+
     @Override
     public String toString() {
         return "Consulta{" +
@@ -75,4 +94,5 @@ public class Consulta {
                 ", medico=" + medico +
                 '}';
     }
+
 }
