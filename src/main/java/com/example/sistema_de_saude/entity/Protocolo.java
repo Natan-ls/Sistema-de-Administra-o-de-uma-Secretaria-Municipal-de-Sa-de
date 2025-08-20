@@ -74,6 +74,4 @@ public class Protocolo {
         status = true;
     };
 
-
-
 }

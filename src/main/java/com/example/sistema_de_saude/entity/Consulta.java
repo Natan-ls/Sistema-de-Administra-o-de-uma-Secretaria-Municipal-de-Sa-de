@@ -34,7 +34,7 @@ public class Consulta {
     public void setStatus(StatusConsulta status) {this.status = status; }
 
     public enum StatusConsulta {
-        EM_ATENDIMENTO, REALIZADA, CANCELADA
+        EM_ATENDIMENTO, CONFIRMADA, REALIZADA, CANCELADA
     }
 
     public Long getId() {
@@ -94,4 +94,5 @@ public class Consulta {
                 ", medico=" + medico +
                 '}';
     }
+
 }

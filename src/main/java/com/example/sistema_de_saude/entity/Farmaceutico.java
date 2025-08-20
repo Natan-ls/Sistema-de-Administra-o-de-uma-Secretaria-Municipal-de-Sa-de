@@ -41,4 +41,15 @@ public class Farmaceutico extends Funcionario{
     public List<Protocolo> getProtocolos() {return protocolos; }
 
     public void setProtocolos(List<Protocolo> protocolos) {this.protocolos = protocolos; }
+
+    public void addProtocolo(Protocolo protocolo) {
+        if (protocolo == null) {
+            throw new IllegalArgumentException("O protocolo não pode ser nulo.");
+        }
+        if (this.protocolos == null) {
+            this.protocolos = new ArrayList<>();
+        }
+        this.protocolos.add(protocolo);
+    }
+
 }
