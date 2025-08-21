@@ -11,5 +11,12 @@ public final class CaminhoFXML {
     public static final String VIEW_TESTE = "/com/example/sistema_de_saude/views/ViewTeste.fxml";
 
     // PANES
+    // Modulo Recepção
+    public static final String PANE_PACIENTE = "/com/example/sistema_de_saude/views/viewRecepcao/PanePacientes.fxml";
+    public static final String PANE_AGENDAMENTO = "/com/example/sistema_de_saude/views/viewRecepcao/PaneAgendamentos.fxml";
+
+    // Modulo Farmacia
     public static final String PANE_ESTOQUE = "/com/example/sistema_de_saude/views/viewFarmacia/PaneEstoque.fxml";
+
+    // Modulo Consulta
 }

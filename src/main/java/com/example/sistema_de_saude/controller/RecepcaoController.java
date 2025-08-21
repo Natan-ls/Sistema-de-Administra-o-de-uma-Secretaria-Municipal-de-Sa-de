@@ -1,0 +1,40 @@
+package com.example.sistema_de_saude.controller;
+
+import com.example.sistema_de_saude.util.CaminhoFXML;
+import com.example.sistema_de_saude.util.NavegadorPane;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.control.Button;
+import javafx.scene.layout.Pane;
+
+import java.io.IOException;
+
+public class RecepcaoController extends NavegadorPane {
+
+    @FXML
+    private Button btnPaciente;
+
+    @FXML
+    private Button btnAgendamento;
+
+    @FXML
+    private Pane painelPrincipal;
+
+    @FXML
+    public void initialize() throws IOException {
+        this.setPainel(painelPrincipal);
+        Pane inicial = FXMLLoader.load(getClass().getResource(CaminhoFXML.PANE_PACIENTE));
+        painelPrincipal.getChildren().setAll(inicial);
+    }
+
+    public void moduloPaciente(ActionEvent actionEvent) {
+        trocarPane(CaminhoFXML.PANE_PACIENTE);
+    }
+
+
+    public void moduloAgendamento(ActionEvent actionEvent) {
+        trocarPane(CaminhoFXML.PANE_AGENDAMENTO);
+    }
+
+}

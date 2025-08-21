@@ -9,121 +9,68 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.PacientesController">
-    <children>
-        <VBox prefHeight="648.0" prefWidth="352.0" style="-fx-background-color: #4180ab;">
-            <children>
-                <Pane prefHeight="280.0" prefWidth="352.0">
-                    <children>
-                        <Label layoutX="94.0" layoutY="144.0" prefHeight="51.0" prefWidth="169.0" text="S.A.S.M.S." textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="35.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="126.0" layoutY="20.0" text="🏥" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="100.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-                <Pane prefHeight="487.0" prefWidth="352.0">
-                    <children>
-                        <Button layoutX="72.0" layoutY="63.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pacientes">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Button layoutX="72.0" layoutY="165.0" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Agendamentos">
-                            <font>
-                                <Font name="System Bold" size="24.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Label layoutX="6.0" layoutY="380.0" prefHeight="51.0" prefWidth="248.0" text="Seção: Recepcionista" textFill="WHITE">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                        </Label>
-                    </children>
-                </Pane>
-            </children>
-        </VBox>
-        <Pane prefHeight="648.0" prefWidth="800.0">
-            <children>
-                <AnchorPane prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;">
-                    <children>
-                        <Label layoutX="9.0" layoutY="13.0" prefHeight="51.0" prefWidth="310.0" style="-fx-text-fill: #4180ab;" text="Cadastrar Paciente">
-                            <font>
-                                <Font name="System Bold" size="35.0" />
-                            </font>
-                        </Label>
-                        <TableView layoutX="17.0" layoutY="222.0" prefHeight="412.0" prefWidth="767.0" style="-fx-border-color: black;">
-                            <columns>
-                                <TableColumn prefWidth="147.0" text="Nome" />
-                                <TableColumn prefWidth="155.0" text="CPF" />
-                                <TableColumn prefWidth="130.0" text="Data de nascimento" />
-                                <TableColumn prefWidth="86.0" text="Telefone" />
-                                <TableColumn prefWidth="122.0" text="Cod. Cartão do SUS" />
-                                <TableColumn prefWidth="125.0" text="Sexo" />
-                            </columns>
-                        </TableView>
-                        <TextField layoutX="84.0" layoutY="83.0" prefHeight="25.0" prefWidth="212.0" promptText="Nome completo" />
-                        <Label layoutX="9.0" layoutY="66.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <Label layoutX="308.0" layoutY="70.0" prefHeight="51.0" prefWidth="50.0" style="-fx-text-fill: #4180ab;" text="CPF:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <TextField layoutX="358.0" layoutY="83.0" prefHeight="25.0" prefWidth="99.0" promptText="Digite o CPF" />
-                        <Label layoutX="9.0" layoutY="125.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <DatePicker layoutX="227.0" layoutY="131.0" prefHeight="25.0" prefWidth="194.0" />
-                        <Label layoutX="463.0" layoutY="70.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <TextField layoutX="571.0" layoutY="83.0" prefHeight="25.0" prefWidth="194.0" promptText="Número cartão do SUS" />
-                        <Label layoutX="428.0" layoutY="128.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <ChoiceBox layoutX="490.0" layoutY="132.0" prefWidth="150.0" />
-                        <Button layoutX="261.0" layoutY="173.0" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
-                            <font>
-                                <Font name="System Bold" size="15.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Label layoutX="9.0" layoutY="172.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
-                            <font>
-                                <Font name="System Bold" size="22.0" />
-                            </font>
-                        </Label>
-                        <TextField layoutX="117.0" layoutY="176.0" prefHeight="25.0" prefWidth="130.0" promptText="Endereço do paciente" />
-                    </children>
-                </AnchorPane>
-            </children></Pane>
-    </children>
-</HBox>
+<AnchorPane prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.PacientesController">
+   <children>
+      <Label layoutX="9.0" layoutY="13.0" prefHeight="51.0" prefWidth="310.0" style="-fx-text-fill: #4180ab;" text="Cadastrar Paciente">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <TableView fx:id="tbViewPacientes" layoutX="17.0" layoutY="222.0" prefHeight="412.0" prefWidth="767.0" style="-fx-border-color: black;">
+         <columns>
+            <TableColumn fx:id="columnNome" prefWidth="147.0" text="Nome" />
+            <TableColumn fx:id="columnCpf" prefWidth="155.0" text="CPF" />
+            <TableColumn fx:id="columnDataNascimento" prefWidth="130.0" text="Data de nascimento" />
+            <TableColumn fx:id="columnTelefone" prefWidth="86.0" text="Telefone" />
+            <TableColumn fx:id="columnSus" prefWidth="122.0" text="Cod. Cartão do SUS" />
+            <TableColumn fx:id="columnSexo" prefWidth="125.0" text="Sexo" />
+         </columns>
+      </TableView>
+      <TextField fx:id="tfNome" layoutX="84.0" layoutY="83.0" prefHeight="25.0" prefWidth="212.0" promptText="Nome completo" />
+      <Label layoutX="9.0" layoutY="66.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="308.0" layoutY="70.0" prefHeight="51.0" prefWidth="50.0" style="-fx-text-fill: #4180ab;" text="CPF:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfCpf" layoutX="358.0" layoutY="83.0" prefHeight="25.0" prefWidth="99.0" promptText="Digite o CPF" />
+      <Label layoutX="9.0" layoutY="125.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="dtDataNascimento" layoutX="227.0" layoutY="131.0" prefHeight="25.0" prefWidth="194.0" />
+      <Label layoutX="463.0" layoutY="70.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfSus" layoutX="571.0" layoutY="83.0" prefHeight="25.0" prefWidth="194.0" promptText="Número cartão do SUS" />
+      <Label layoutX="428.0" layoutY="128.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="cbSexo" layoutX="490.0" layoutY="132.0" prefWidth="150.0" />
+      <Button layoutX="261.0" layoutY="173.0" onAction="#adicionarPaciente" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="9.0" layoutY="172.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfEndereco" layoutX="117.0" layoutY="176.0" prefHeight="25.0" prefWidth="130.0" promptText="Endereço do paciente" />
+   </children>
+</AnchorPane>
