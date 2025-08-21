@@ -1,8 +1,11 @@
 package com.example.sistema_de_saude.dataAccess;
 
 
+import com.example.sistema_de_saude.entity.LoteMedicamento;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+
+import java.util.List;
 
 public class LoteMedicamentoDAO {
 

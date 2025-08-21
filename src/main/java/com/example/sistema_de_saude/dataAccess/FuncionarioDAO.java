@@ -3,6 +3,7 @@ package com.example.sistema_de_saude.dataAccess;
 import com.example.sistema_de_saude.entity.Funcionario;
 import com.example.sistema_de_saude.entity.Pessoa;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
@@ -70,5 +71,17 @@ public class FuncionarioDAO {
             ex.printStackTrace();
         }
     }
+
+    public Funcionario findByPessoaId(Long pessoaId) {
+        try {
+            String jpql = "SELECT f FROM Funcionario f WHERE f.fkPessoa = :pessoaId";
+            return entityManager.createQuery(jpql, Funcionario.class)
+                    .setParameter("pessoaId", pessoaId)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
 }
 

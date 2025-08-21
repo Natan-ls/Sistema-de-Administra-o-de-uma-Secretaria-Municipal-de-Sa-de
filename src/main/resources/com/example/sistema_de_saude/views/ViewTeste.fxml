@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" style="-fx-background-color: #4180ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.TesteController">
+    <children>
+        <Pane layoutX="284.0" layoutY="126.0" prefHeight="396.0" prefWidth="584.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13px;">
+            <children>
+                <Button layoutX="315.0" layoutY="114.0" onAction="#moduloFarmacia" prefHeight="65.0" prefWidth="247.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Farmaceutico">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="45.0" layoutY="114.0" onAction="#moduloAdmin" prefHeight="65.0" prefWidth="247.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Administrador">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="45.0" layoutY="231.0" onAction="#moduloMedico" prefHeight="65.0" prefWidth="247.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Medico">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Button layoutX="315.0" layoutY="231.0" onAction="#moduloRecepcao" prefHeight="65.0" prefWidth="247.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Recepcionista">
+                    <font>
+                        <Font name="System Bold" size="30.0" />
+                    </font>
+                    <cursor>
+                        <Cursor fx:constant="HAND" />
+                    </cursor>
+                </Button>
+                <Label layoutX="197.0" layoutY="23.0" text="Login Teste" textFill="#4180ab">
+                    <font>
+                        <Font name="System Bold" size="35.0" />
+                    </font>
+                </Label>
+            </children></Pane>
+    </children>
+</Pane>

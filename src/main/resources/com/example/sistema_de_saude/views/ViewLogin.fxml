@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" style="-fx-background-color: #4180ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" style="-fx-background-color: #4180ab;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.LoginController">
     <children>
         <Pane layoutX="331.0" layoutY="141.0" prefHeight="482.0" prefWidth="492.0" style="-fx-background-color: #ffffff; -fx-background-radius: 13px;">
             <children>
@@ -17,17 +17,17 @@
                         <Font name="System Bold" size="28.0" />
                     </font>
                 </Label>
-                <TextField layoutX="62.0" layoutY="135.0" prefHeight="40.0" prefWidth="369.0" promptText="Digite seu login" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdd1de;">
+                <TextField fx:id="tfUser" layoutX="62.0" layoutY="135.0" prefHeight="40.0" prefWidth="369.0" promptText="Digite seu login" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdd1de;">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </TextField>
-                <PasswordField layoutX="60.0" layoutY="209.0" prefHeight="40.0" prefWidth="369.0" promptText="Digite sua senha" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdd1de;">
+                <PasswordField fx:id="tfSenha" layoutX="60.0" layoutY="209.0" prefHeight="40.0" prefWidth="369.0" promptText="Digite sua senha" style="-fx-background-radius: 8; -fx-border-radius: 8; -fx-border-color: #bdd1de;">
                     <font>
                         <Font size="15.0" />
                     </font>
                 </PasswordField>
-                <Button layoutX="173.0" layoutY="286.0" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Acessar">
+                <Button layoutX="173.0" layoutY="286.0" onAction="#acessarTela" prefHeight="40.0" prefWidth="150.0" style="-fx-background-color: #4180ab; -fx-text-fill: white; -fx-background-radius: 10;" text="Acessar">
                     <font>
                         <Font size="18.0" />
                     </font>

@@ -17,6 +17,10 @@ public class UsuarioSistema {
     @JoinColumn(name = "fkUsuario", referencedColumnName = "id")
     Funcionario funcionario;
 
+    @Enumerated(EnumType.STRING)
+    private TipoUser tipoUser;
+
+    public enum TipoUser{ MEDICO, FARMACEUTICO, RECEPCIONISTA, ADMINISTRADOR}
 
     public Long getId() {
         return id;
@@ -57,4 +61,9 @@ public class UsuarioSistema {
     public void setFuncionario(Funcionario funcionario) {
         this.funcionario = funcionario;
     }
+
+    public TipoUser getTipoUser() {return tipoUser; }
+
+    public void setTipoUser(TipoUser tipoUser) {this.tipoUser = tipoUser; }
+
 }

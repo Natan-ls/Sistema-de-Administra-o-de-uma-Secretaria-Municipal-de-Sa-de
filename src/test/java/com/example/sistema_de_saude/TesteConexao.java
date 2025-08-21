@@ -3,6 +3,7 @@ package com.example.sistema_de_saude;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.*;
 
 public class TesteConexao {
 

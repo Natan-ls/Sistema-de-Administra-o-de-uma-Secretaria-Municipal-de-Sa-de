@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <VBox prefHeight="648.0" prefWidth="352.0" style="-fx-background-color: #4180ab;">
+            <children>
+                <Pane prefHeight="280.0" prefWidth="352.0">
+                    <children>
+                        <Label layoutX="94.0" layoutY="144.0" prefHeight="51.0" prefWidth="169.0" text="S.A.S.M.S." textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="35.0" />
+                            </font>
+                        </Label>
+                        <Label layoutX="126.0" layoutY="20.0" text="🏥" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="100.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+                <Pane prefHeight="487.0" prefWidth="352.0">
+                    <children>
+                        <Button layoutX="72.0" layoutY="63.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pacientes">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Button layoutX="72.0" layoutY="165.0" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Agendamentos">
+                            <font>
+                                <Font name="System Bold" size="24.0" />
+                            </font>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                        <Label layoutX="6.0" layoutY="380.0" prefHeight="51.0" prefWidth="248.0" text="Seção: Recepcionista" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="25.0" />
+                            </font>
+                        </Label>
+                    </children>
+                </Pane>
+            </children>
+        </VBox>
+    </children>
+</HBox>

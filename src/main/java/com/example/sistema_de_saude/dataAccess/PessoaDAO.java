@@ -2,6 +2,7 @@ package com.example.sistema_de_saude.dataAccess;
 
 import com.example.sistema_de_saude.entity.Pessoa;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
@@ -68,5 +69,17 @@ public class PessoaDAO {
             ex.printStackTrace();
         }
     }
+
+    public Pessoa findByCpf(String cpf) {
+        try {
+            String jpql = "SELECT p FROM Pessoa p WHERE p.cpf = :cpf";
+            return entityManager.createQuery(jpql, Pessoa.class)
+                    .setParameter("cpf", cpf)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
 }
 

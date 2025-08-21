@@ -20,20 +20,6 @@ module com.example.sistema_de_saude {
             org.hibernate.orm.core,
             javafx.fxml;
 
-    opens com.example.sistema_de_saude.entity to
-            org.hibernate.orm.core,
-            jakarta.persistence;
-
-    opens com.example.sistema_de_saude.controller to
-            javafx.fxml;
-
-    opens com.example.sistema_de_saude.views to
-            javafx.fxml;
-
     // EXPORTS
     exports com.example.sistema_de_saude;
-    exports com.example.sistema_de_saude.entity;
-    exports com.example.sistema_de_saude.dataAccess;
-    exports com.example.sistema_de_saude.controller;
-    exports com.example.sistema_de_saude.util;
 }
