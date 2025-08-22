@@ -13,6 +13,7 @@ public class Consulta {
     private Long id;
 
     private Date dataConsulta;
+    private String tipoConsulta;
     private String descricao;
 
     @Enumerated(EnumType.STRING)
@@ -33,6 +34,14 @@ public class Consulta {
     public StatusConsulta getStatus() {return status; }
 
     public void setStatus(StatusConsulta status) {this.status = status; }
+
+    public String getTipoConsulta() {
+        return tipoConsulta;
+    }
+
+    public void setTipoConsulta(String tipoConsulta) {
+        this.tipoConsulta = tipoConsulta;
+    }
 
     public enum StatusConsulta {EM_ATENDIMENTO, CONFIRMADA, REALIZADA, CANCELADA  }
 

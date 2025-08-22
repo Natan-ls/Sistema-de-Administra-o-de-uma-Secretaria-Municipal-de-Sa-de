@@ -38,4 +38,6 @@ module com.example.sistema_de_saude {
     exports com.example.sistema_de_saude.util;
     exports com.example.sistema_de_saude.controller.recepcao;
     opens com.example.sistema_de_saude.controller.recepcao to javafx.fxml;
+    exports com.example.sistema_de_saude.controller.consulta;
+    exports com.example.sistema_de_saude.controller.farmacia;
 }

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.consulta.PaneAdicionarController">
+   <children>
+      <Label alignment="CENTER" layoutX="232.0" layoutY="14.0" prefHeight="51.0" prefWidth="337.0" style="-fx-text-fill: #4180ab;" text="Consulta">
+         <font>
+            <Font name="System Bold" size="35.0" />
+         </font>
+      </Label>
+      <Label layoutX="17.0" layoutY="85.0" prefHeight="51.0" prefWidth="124.0" style="-fx-text-fill: #4180ab;" text="Paciente:">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Button fx:id="btnAddRemedio" layoutX="188.0" layoutY="181.0" onAction="#addRemedio" prefHeight="31.0" prefWidth="181.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Adicionar Remedio">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="tfFinalizarConsulta" layoutX="306.0" layoutY="578.0" onAction="#finalizarConsulta" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Finalizar Consulta">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button layoutX="306.0" layoutY="136.0" onAction="#gerarProtocolo" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Gerar Protocolo">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <VBox layoutX="15.0" layoutY="218.0" prefHeight="338.0" prefWidth="354.0">
+         <children>
+            <TextField fx:id="tfRemedio" prefHeight="25.0" prefWidth="176.0" promptText="Pesquisar remédio" />
+         </children>
+      </VBox>
+      <Label fx:id="lbNomePaciente" layoutX="153.0" layoutY="86.0" prefHeight="51.0" prefWidth="383.0" style="-fx-text-fill: #4180ab;" text="Nome">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <Label layoutX="16.0" layoutY="177.0" prefHeight="37.0" prefWidth="124.0" style="-fx-text-fill: #4180ab;" text="Remedios">
+         <font>
+            <Font name="System Bold" size="25.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfDescricao" alignment="CENTER" layoutX="392.0" layoutY="222.0" prefHeight="338.0" prefWidth="383.0" promptText="Descrição da consulta" />
+   </children>
+</AnchorPane>

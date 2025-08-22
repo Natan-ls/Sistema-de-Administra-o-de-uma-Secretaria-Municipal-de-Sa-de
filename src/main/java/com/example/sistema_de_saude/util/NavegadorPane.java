@@ -5,6 +5,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
 
+import java.io.IOException;
+
 public abstract class NavegadorPane {
 
     protected Pane painel;                 // container onde os panes serão trocados
@@ -38,6 +40,26 @@ public abstract class NavegadorPane {
 
             painel.getChildren().setAll(conteudo);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected <T> void trocarPane(String caminhoFXML, T dados) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFXML));
+            Parent conteudo = loader.load();
+
+            Object controller = loader.getController();
+            if (controller instanceof NavegadorPane np) {
+                np.setUsuario(this.usuario);
+            }
+            if (controller instanceof ReceberDados<?> rd) {
+                ((ReceberDados<T>) rd).setDados(dados);
+            }
+
+            painel.getChildren().setAll(conteudo);
+        } catch (Exception e) {
+            System.err.println("Erro ao trocar pane com dados: " + e.getMessage());
             e.printStackTrace();
         }
     }
