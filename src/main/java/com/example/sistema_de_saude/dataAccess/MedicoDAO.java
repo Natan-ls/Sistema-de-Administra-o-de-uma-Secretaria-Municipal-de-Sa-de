@@ -34,7 +34,6 @@ public class MedicoDAO {
             entityManager.persist(pessoa); //add pessoa primeiro
             entityManager.persist(medico);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -60,7 +59,6 @@ public class MedicoDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

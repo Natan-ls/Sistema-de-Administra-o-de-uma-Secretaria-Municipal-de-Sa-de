@@ -33,7 +33,6 @@ public class PessoaDAO {
             entityManager.getTransaction().begin();
             entityManager.persist(pessoa);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -59,7 +58,6 @@ public class PessoaDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

@@ -1,4 +1,4 @@
-package com.example.sistema_de_saude.controller;
+package com.example.sistema_de_saude.controller.recepcao;
 
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorPane;
@@ -24,7 +24,7 @@ public class RecepcaoController extends NavegadorPane {
     @FXML
     public void initialize() throws IOException {
         this.setPainel(painelPrincipal);
-        Pane inicial = FXMLLoader.load(getClass().getResource(CaminhoFXML.PANE_PACIENTE));
+        Pane inicial = FXMLLoader.load(getClass().getResource(CaminhoFXML.PANE_OPCOES_CRUD));
         painelPrincipal.getChildren().setAll(inicial);
     }
 

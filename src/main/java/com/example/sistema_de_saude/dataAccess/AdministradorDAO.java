@@ -34,7 +34,6 @@ public class AdministradorDAO {
             entityManager.persist(pessoa);
             entityManager.persist(administrador);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -60,7 +59,6 @@ public class AdministradorDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

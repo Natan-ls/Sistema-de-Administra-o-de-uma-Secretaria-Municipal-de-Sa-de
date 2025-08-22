@@ -32,7 +32,6 @@ public class FarmaceuticoDAO {
             entityManager.getTransaction().begin();
             entityManager.persist(farmaceutico);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -58,7 +57,6 @@ public class FarmaceuticoDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

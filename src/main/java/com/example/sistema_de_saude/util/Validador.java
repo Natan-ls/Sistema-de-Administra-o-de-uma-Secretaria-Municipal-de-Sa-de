@@ -51,7 +51,7 @@ public class Validador{
         return EMAIL_REGEX.matcher(email).matches();
     }
 
-    public boolean susIsValido(String sus) {
+    public static boolean susIsValido(String sus) {
         if (sus == null) return false;
         return SUS_REGEX.matcher(sus).matches();
     }

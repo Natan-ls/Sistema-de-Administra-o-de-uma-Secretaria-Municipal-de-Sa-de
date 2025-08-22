@@ -5,60 +5,48 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.PacientesController">
+<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.recepcao.PacientesController">
    <children>
-      <Label layoutX="9.0" layoutY="13.0" prefHeight="51.0" prefWidth="310.0" style="-fx-text-fill: #4180ab;" text="Cadastrar Paciente">
+      <Label layoutX="19.0" layoutY="23.0" prefHeight="51.0" prefWidth="310.0" style="-fx-text-fill: #4180ab;" text="Cadastrar Paciente">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
       </Label>
-      <TableView fx:id="tbViewPacientes" layoutX="17.0" layoutY="222.0" prefHeight="412.0" prefWidth="767.0" style="-fx-border-color: black;">
-         <columns>
-            <TableColumn fx:id="columnNome" prefWidth="147.0" text="Nome" />
-            <TableColumn fx:id="columnCpf" prefWidth="155.0" text="CPF" />
-            <TableColumn fx:id="columnDataNascimento" prefWidth="130.0" text="Data de nascimento" />
-            <TableColumn fx:id="columnTelefone" prefWidth="86.0" text="Telefone" />
-            <TableColumn fx:id="columnSus" prefWidth="122.0" text="Cod. Cartão do SUS" />
-            <TableColumn fx:id="columnSexo" prefWidth="125.0" text="Sexo" />
-         </columns>
-      </TableView>
-      <TextField fx:id="tfNome" layoutX="84.0" layoutY="83.0" prefHeight="25.0" prefWidth="212.0" promptText="Nome completo" />
-      <Label layoutX="9.0" layoutY="66.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
+      <TextField fx:id="tfNome" layoutX="286.0" layoutY="117.0" prefHeight="26.0" prefWidth="435.0" promptText="Nome completo" />
+      <Label layoutX="142.0" layoutY="105.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <Label layoutX="308.0" layoutY="70.0" prefHeight="51.0" prefWidth="50.0" style="-fx-text-fill: #4180ab;" text="CPF:">
+      <Label layoutX="170.0" layoutY="162.0" prefHeight="51.0" prefWidth="76.0" style="-fx-text-fill: #4180ab;" text="CPF:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfCpf" layoutX="358.0" layoutY="83.0" prefHeight="25.0" prefWidth="99.0" promptText="Digite o CPF" />
-      <Label layoutX="9.0" layoutY="125.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
+      <TextField fx:id="tfCpf" layoutX="286.0" layoutY="174.0" prefHeight="26.0" prefWidth="435.0" promptText="Digite o CPF" />
+      <Label layoutX="13.0" layoutY="363.0" prefHeight="32.0" prefWidth="231.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dtDataNascimento" layoutX="227.0" layoutY="131.0" prefHeight="25.0" prefWidth="194.0" />
-      <Label layoutX="463.0" layoutY="70.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
+      <DatePicker fx:id="dtDataNascimento" layoutX="288.0" layoutY="366.0" prefHeight="25.0" prefWidth="194.0" />
+      <Label layoutX="124.0" layoutY="221.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfSus" layoutX="571.0" layoutY="83.0" prefHeight="25.0" prefWidth="194.0" promptText="Número cartão do SUS" />
-      <Label layoutX="428.0" layoutY="128.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
+      <TextField fx:id="tfSus" layoutX="286.0" layoutY="233.0" prefHeight="26.0" prefWidth="435.0" promptText="Número cartão do SUS" />
+      <Label layoutX="509.0" layoutY="363.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="cbSexo" layoutX="490.0" layoutY="132.0" prefWidth="150.0" />
-      <Button layoutX="261.0" layoutY="173.0" onAction="#adicionarPaciente" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
+      <ChoiceBox fx:id="cbSexo" layoutX="571.0" layoutY="367.0" prefWidth="150.0" />
+      <Button layoutX="516.0" layoutY="517.0" onAction="#adicionarPaciente" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -66,11 +54,25 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="9.0" layoutY="172.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
+      <Label layoutX="124.0" layoutY="296.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfEndereco" layoutX="117.0" layoutY="176.0" prefHeight="25.0" prefWidth="130.0" promptText="Endereço do paciente" />
+      <TextField fx:id="tfEndereco" layoutX="286.0" layoutY="299.0" prefHeight="26.0" prefWidth="435.0" promptText="Endereço do paciente" />
+      <Label layoutX="170.0" layoutY="428.0" prefHeight="32.0" prefWidth="76.0" style="-fx-text-fill: #4180ab;" text="Email:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfEmail" layoutX="292.0" layoutY="431.0" prefHeight="26.0" prefWidth="435.0" promptText="Example@gmail.com" />
+      <Button layoutX="246.0" layoutY="517.0" onAction="#voltarPane" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
-</AnchorPane>
+</Pane>

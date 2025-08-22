@@ -36,4 +36,6 @@ module com.example.sistema_de_saude {
     exports com.example.sistema_de_saude.dataAccess;
     exports com.example.sistema_de_saude.controller;
     exports com.example.sistema_de_saude.util;
+    exports com.example.sistema_de_saude.controller.recepcao;
+    opens com.example.sistema_de_saude.controller.recepcao to javafx.fxml;
 }

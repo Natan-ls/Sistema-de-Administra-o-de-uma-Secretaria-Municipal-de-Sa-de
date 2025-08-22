@@ -33,7 +33,6 @@ public class LoteMedicamentoDAO {
             entityManager.getTransaction().begin();
             entityManager.persist(loteMedicamento);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -59,7 +58,6 @@ public class LoteMedicamentoDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

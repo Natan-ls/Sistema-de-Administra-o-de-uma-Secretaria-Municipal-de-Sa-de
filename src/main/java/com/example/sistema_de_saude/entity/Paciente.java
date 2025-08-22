@@ -1,6 +1,7 @@
 package com.example.sistema_de_saude.entity;
 
 import jakarta.persistence.*;
+import javafx.beans.value.ObservableValue;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,6 +24,13 @@ public class Paciente {
 
     @OneToMany(mappedBy = "paciente", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Consulta> consultas = new ArrayList<>();
+
+    public Paciente(){}
+
+    public Paciente(String numeroSus, Pessoa pessoa){
+        this.numeroSus = numeroSus;
+        this.pessoa = pessoa;
+    }
 
     public Long getId() {
         return id;

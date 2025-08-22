@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #E0F0FF;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+
+      <Label layoutX="20.0" layoutY="20.0" style="-fx-text-fill: #4180AB;" text="Agendar Consulta">
+         <font>
+            <Font name="System Bold" size="32.0" />
+         </font>
+      </Label>
+
+      <Label layoutX="277.0" layoutY="113.0" style="-fx-text-fill: #4180AB;" text="CPF:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="cpfField" layoutX="330.0" layoutY="113.0" prefWidth="180.0" promptText="Digite o CPF do paciente" style="-fx-background-color: white; -fx-border-color: #A0C4E8; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+      <Label layoutX="261.0" layoutY="151.0" style="-fx-text-fill: #4180AB;" text="Nome:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="nomeField" editable="false" layoutX="330.0" layoutY="151.0" prefHeight="27.0" prefWidth="180.0" style="-fx-background-color: #F9FBFF; -fx-border-color: #A0C4E8; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+      <Label layoutX="236.0" layoutY="190.0" style="-fx-text-fill: #4180AB;" text="Cod. SUS:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <TextField fx:id="susField" editable="false" layoutX="330.0" layoutY="190.0" prefHeight="27.0" prefWidth="180.0" style="-fx-background-color: #F9FBFF; -fx-border-color: #A0C4E8; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+      <Label layoutX="168.0" layoutY="290.0" style="-fx-text-fill: #4180AB;" text="Data da Consulta:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <DatePicker fx:id="datePicker" layoutX="330.0" layoutY="290.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #A0C4E8; -fx-border-radius: 5; -fx-background-radius: 5;" />
+
+      <Label layoutX="249.0" layoutY="325.0" style="-fx-text-fill: #4180AB;" text="Horário:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="timeChoiceBox" layoutX="330.0" layoutY="325.0" prefHeight="27.0" prefWidth="180.0" style="-fx-background-color: white; -fx-border-color: #A0C4E8; -fx-border-radius: 5;" />
+
+      <Button layoutX="340.0" layoutY="392.0" prefHeight="40.0" prefWidth="160.0" style="-fx-background-color: white; -fx-border-color: #4180AB; -fx-border-radius: 0; -fx-text-fill: #4180AB;" text="➕ Adicionar">
+         <font>
+            <Font name="System Bold" size="16.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label layoutX="250.0" layoutY="249.0" style="-fx-text-fill: #4180AB;" text="Médico:">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Label>
+      <ChoiceBox layoutX="330.0" layoutY="250.0" prefHeight="25.0" prefWidth="180.0" />
+   </children>
+</AnchorPane>

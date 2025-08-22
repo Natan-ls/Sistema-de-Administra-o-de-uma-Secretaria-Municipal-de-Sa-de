@@ -1,6 +1,7 @@
 package com.example.sistema_de_saude.entity;
 
 import jakarta.persistence.*;
+import javafx.beans.value.ObservableValue;
 
 import java.util.Date;
 
@@ -16,6 +17,7 @@ public class Pessoa {
     private Date dataNascimento;
     private Character sexo;
     private String telefone;
+    private String endereco;
 
     @Column(unique = true, nullable = true)
     private String cpf;
@@ -26,14 +28,15 @@ public class Pessoa {
     @OneToOne(mappedBy = "pessoa")
     private Paciente paciente;
 
-    public Pessoa(){};
+    public Pessoa(){}
 
-    public Pessoa(String nome, String cpf , String email, Date dataNascimento, Character sexo){
+    public Pessoa(String nome, String cpf , String email, Date dataNascimento, Character sexo, String endereco){
         this.nome = nome;
         this.cpf = cpf;
         this.email = email;
         this.dataNascimento = dataNascimento;
         this.sexo = sexo;
+        this.endereco = endereco;
     }
 
     public void setId(Long id) {
@@ -101,4 +104,12 @@ public class Pessoa {
     public String getTelefone() {return telefone;}
 
     public void setTelefone(String telefone) {this.telefone = telefone; }
+
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
+
+    public String getEndereco() {
+        return endereco;
+    }
 }

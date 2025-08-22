@@ -3,6 +3,7 @@ package com.example.sistema_de_saude.dataAccess;
 import com.example.sistema_de_saude.entity.Paciente;
 import com.example.sistema_de_saude.entity.Pessoa;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
 
 import java.util.List;
@@ -21,7 +22,7 @@ public class PacienteDAO {
     private PacienteDAO() {
         entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
     }
-    public Paciente getById(int id) {
+    public Paciente getById(Long id) {
         return entityManager.find(Paciente.class, id);
     }
     @SuppressWarnings("unchecked")
@@ -34,7 +35,6 @@ public class PacienteDAO {
             entityManager.persist(pessoa);
             entityManager.persist(paciente);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -50,6 +50,7 @@ public class PacienteDAO {
             entityManager.getTransaction().rollback();
         }
     }
+
     public void remove(Paciente paciente) {
         try {
             entityManager.getTransaction().begin();
@@ -60,9 +61,9 @@ public class PacienteDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
-    public void removeById(int id) {
+
+    public void removeById(Long id) {
         try {
             Paciente paciente = getById(id);
             remove(paciente);
@@ -70,5 +71,17 @@ public class PacienteDAO {
             ex.printStackTrace();
         }
     }
+
+    public Paciente findBySus(String numeroSus) {
+        try {
+            String jpql = "SELECT p FROM Paciente p WHERE p.numeroSus = :numeroSus";
+            return entityManager.createQuery(jpql, Paciente.class)
+                    .setParameter("numeroSus", numeroSus)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
 }
 

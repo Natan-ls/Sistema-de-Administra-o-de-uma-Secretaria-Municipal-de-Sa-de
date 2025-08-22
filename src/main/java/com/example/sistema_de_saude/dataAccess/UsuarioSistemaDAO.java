@@ -35,7 +35,6 @@ public class UsuarioSistemaDAO {
             entityManager.getTransaction().begin();
             entityManager.persist(pessoa);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -61,7 +60,6 @@ public class UsuarioSistemaDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {

@@ -35,7 +35,6 @@ public class FuncionarioDAO {
             entityManager.persist(pessoa);
             entityManager.persist(funcionario);
             entityManager.getTransaction().commit();
-            entityManager.close();
         } catch (Exception ex) {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
@@ -61,7 +60,6 @@ public class FuncionarioDAO {
             ex.printStackTrace();
             entityManager.getTransaction().rollback();
         }
-        entityManager.close();
     }
     public void removeById(int id) {
         try {
