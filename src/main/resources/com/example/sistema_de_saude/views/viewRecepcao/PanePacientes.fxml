@@ -28,25 +28,25 @@
          </font>
       </Label>
       <TextField fx:id="tfCpf" layoutX="286.0" layoutY="174.0" prefHeight="26.0" prefWidth="435.0" promptText="Digite o CPF" />
-      <Label layoutX="13.0" layoutY="363.0" prefHeight="32.0" prefWidth="231.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
+      <Label layoutX="13.0" layoutY="395.0" prefHeight="32.0" prefWidth="231.0" style="-fx-text-fill: #4180ab;" text="Data de nascimento:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <DatePicker fx:id="dtDataNascimento" layoutX="288.0" layoutY="366.0" prefHeight="25.0" prefWidth="194.0" />
+      <DatePicker fx:id="dtDataNascimento" layoutX="288.0" layoutY="398.0" prefHeight="25.0" prefWidth="194.0" />
       <Label layoutX="124.0" layoutY="221.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfSus" layoutX="286.0" layoutY="233.0" prefHeight="26.0" prefWidth="435.0" promptText="Número cartão do SUS" />
-      <Label layoutX="509.0" layoutY="363.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
+      <TextField fx:id="tfSus" layoutX="286.0" layoutY="233.0" prefHeight="26.0" prefWidth="435.0" promptText="Digite os 15 digitos do cartão do SUS" />
+      <Label layoutX="509.0" layoutY="395.0" prefHeight="32.0" prefWidth="212.0" style="-fx-text-fill: #4180ab;" text="Sexo:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <ChoiceBox fx:id="cbSexo" layoutX="571.0" layoutY="367.0" prefWidth="150.0" />
-      <Button layoutX="516.0" layoutY="517.0" onAction="#adicionarPaciente" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
+      <ChoiceBox fx:id="cbSexo" layoutX="571.0" layoutY="399.0" prefWidth="150.0" />
+      <Button layoutX="516.0" layoutY="536.0" onAction="#adicionarPaciente" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Adicionar">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -54,19 +54,19 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label layoutX="124.0" layoutY="296.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
+      <Label layoutX="124.0" layoutY="287.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfEndereco" layoutX="286.0" layoutY="299.0" prefHeight="26.0" prefWidth="435.0" promptText="Endereço do paciente" />
-      <Label layoutX="170.0" layoutY="428.0" prefHeight="32.0" prefWidth="76.0" style="-fx-text-fill: #4180ab;" text="Email:">
+      <TextField fx:id="tfEndereco" layoutX="286.0" layoutY="290.0" prefHeight="26.0" prefWidth="435.0" promptText="Endereço do paciente" />
+      <Label layoutX="170.0" layoutY="460.0" prefHeight="32.0" prefWidth="76.0" style="-fx-text-fill: #4180ab;" text="Email:">
          <font>
             <Font name="System Bold" size="22.0" />
          </font>
       </Label>
-      <TextField fx:id="tfEmail" layoutX="292.0" layoutY="431.0" prefHeight="26.0" prefWidth="435.0" promptText="Example@gmail.com" />
-      <Button layoutX="246.0" layoutY="517.0" onAction="#voltarPane" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
+      <TextField fx:id="tfEmail" layoutX="292.0" layoutY="463.0" prefHeight="26.0" prefWidth="435.0" promptText="Example@gmail.com" />
+      <Button layoutX="246.0" layoutY="536.0" onAction="#voltarPane" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -74,5 +74,11 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Label layoutX="131.0" layoutY="342.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Telefone:">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfTelefone" layoutX="286.0" layoutY="345.0" prefHeight="26.0" prefWidth="435.0" promptText="(XX) XXXXX-XXXX" />
    </children>
 </Pane>
