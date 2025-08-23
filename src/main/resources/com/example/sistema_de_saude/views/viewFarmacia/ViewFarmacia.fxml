@@ -49,6 +49,14 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
+                  <Button layoutX="73.0" layoutY="274.0" onAction="#areaAtualizarLote" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Lote medic">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
                </children>
             </Pane>
          </children>

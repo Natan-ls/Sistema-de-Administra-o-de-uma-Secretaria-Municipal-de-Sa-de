@@ -13,7 +13,7 @@ public class TipoMedicamento {
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkMedico", nullable = false)
+    @JoinColumn(name = "fkMedicamento", nullable = false)
     private Medicamento medicamento;
 
     @OneToMany(mappedBy = "tipoMedicamento", cascade = CascadeType.ALL, orphanRemoval = true)

@@ -25,7 +25,7 @@ public final class CaminhoFXML {
     public static final String PANE_CADASTRAR_REMEDIO = "/com/example/sistema_de_saude/views/viewFarmacia/PaneCadastroRemedio.fxml";
     public static final String PANE_ENTREGA_REMEDIO = "/com/example/sistema_de_saude/views/viewFarmacia/PaneEntregaRemedio.fxml";
     public static final String PANE_LOTE_MEDICAMENTO = "/com/example/sistema_de_saude/views/viewFarmacia/PaneLoteMedicamento.fxml";
-
+    public static final String PANE_ATUALIZAR_TIPO_MEDICAMENTO = "/com/example/sistema_de_saude/views/viewFarmacia/PaneAtualizarTipoMedicamento.fxml";
 
     // Modulo Consulta
     public static final String PANE_CONSULTAS = "/com/example/sistema_de_saude/views/viewConsulta/PaneConsultas.fxml";

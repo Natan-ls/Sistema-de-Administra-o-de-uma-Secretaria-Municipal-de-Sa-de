@@ -66,5 +66,19 @@ public class MedicamentoDAO {
             ex.printStackTrace();
         }
     }
+
+    public Medicamento getByNomeMedicamento(String nome) {
+        try {
+            return entityManager.createQuery(
+                            "SELECT m FROM Medicamento WHERE LOWER(m.nome) = LOWER(:nome)",
+                            Medicamento.class)
+                    .setParameter("nome", nome)
+                    .getSingleResult();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
 }
 

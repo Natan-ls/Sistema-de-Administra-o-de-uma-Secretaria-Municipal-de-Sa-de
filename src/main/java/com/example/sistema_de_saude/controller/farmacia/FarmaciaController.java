@@ -30,4 +30,8 @@ public class FarmaciaController extends NavegadorPane {
     public void areaEntregarMedicamentos(ActionEvent actionEvent) {
         trocarPane(CaminhoFXML.PANE_ENTREGA_REMEDIO);
     }
+
+    public void areaAtualizarLote(ActionEvent actionEvent) {
+        trocarPane(CaminhoFXML.PANE_LOTE_MEDICAMENTO, usuario);
+    }
 }

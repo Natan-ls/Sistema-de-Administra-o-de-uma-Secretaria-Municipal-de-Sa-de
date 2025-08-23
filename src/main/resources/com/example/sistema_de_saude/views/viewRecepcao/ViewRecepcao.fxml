@@ -44,7 +44,7 @@
                                 <Cursor fx:constant="HAND" />
                             </cursor>
                         </Button>
-                        <Label layoutX="6.0" layoutY="380.0" prefHeight="51.0" prefWidth="248.0" text="Seção: Recepcionista" textFill="WHITE">
+                        <Label fx:id="tfUser" layoutX="6.0" layoutY="380.0" prefHeight="51.0" prefWidth="344.0" text="Seção: Recepcionista" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>

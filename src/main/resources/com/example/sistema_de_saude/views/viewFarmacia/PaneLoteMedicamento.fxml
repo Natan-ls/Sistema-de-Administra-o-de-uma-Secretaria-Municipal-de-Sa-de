@@ -11,14 +11,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.farmacia.LoteMedicamentoController">
+<AnchorPane fx:id="painelPrincipal" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.farmacia.LoteMedicamentoController">
     <children>
         <Label alignment="CENTER" layoutX="182.0" layoutY="14.0" prefHeight="51.0" prefWidth="433.0" style="-fx-text-fill: #4180ab;" text="Lote de Medicamentos">
             <font>
                 <Font name="System Bold" size="35.0" />
             </font>
         </Label>
-        <Button layoutX="590.0" layoutY="603.0" onAction="#cadastrarRemedio" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="➕ Cadastrar Remédio">
+        <Button layoutX="304.0" layoutY="596.0" onAction="#cadastrarLoteMedicamento" prefHeight="31.0" prefWidth="189.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Salvar">
             <font>
                 <Font name="System Bold" size="15.0" />
             </font>
@@ -52,7 +52,7 @@
                <children>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="321.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data validade">
+                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data fabricação">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -62,7 +62,7 @@
                   </VBox>
                   <VBox alignment="CENTER" prefHeight="100.0" prefWidth="294.0">
                      <children>
-                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data fabricação">
+                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data validade">
                            <font>
                               <Font name="System Bold" size="25.0" />
                            </font>
@@ -79,7 +79,7 @@
                         <Font name="System Bold" size="25.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="tfQuantidade" prefHeight="26.0" prefWidth="363.0" promptText="Digite o nome do remédio" />
+                  <TextField fx:id="tfQuantidade" prefHeight="26.0" prefWidth="363.0" promptText="Quantidade" />
                </children>
             </HBox>
          </children>

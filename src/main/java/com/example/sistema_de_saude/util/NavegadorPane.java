@@ -1,6 +1,7 @@
 package com.example.sistema_de_saude.util;
 
 import com.example.sistema_de_saude.entity.UsuarioSistema;
+import javafx.application.Platform;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.Pane;
@@ -47,14 +48,19 @@ public abstract class NavegadorPane {
     protected <T> void trocarPane(String caminhoFXML, T dados) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(caminhoFXML));
-            Parent conteudo = loader.load();
+            Parent conteudo = loader.load();  // <- aqui os @FXML são injetados
 
             Object controller = loader.getController();
+
+            // Configura o usuário se for NavegadorPane
             if (controller instanceof NavegadorPane np) {
                 np.setUsuario(this.usuario);
             }
-            if (controller instanceof ReceberDados<?> rd) {
-                ((ReceberDados<T>) rd).setDados(dados);
+
+            // Só chama setDados se realmente for ReceberDados do tipo certo
+            if (controller instanceof ReceberDados rd) {
+                // Garantir que o FXML foi carregado e os campos @FXML não são null
+                Platform.runLater(() -> rd.setDados(dados));
             }
 
             painel.getChildren().setAll(conteudo);
