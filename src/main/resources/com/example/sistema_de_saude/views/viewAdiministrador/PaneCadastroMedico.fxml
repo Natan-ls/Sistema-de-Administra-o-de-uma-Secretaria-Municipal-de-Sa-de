@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.CadastroFinalMedicoControlle">
+    <children>
+        <Label layoutX="208.0" layoutY="14.0" prefHeight="51.0" prefWidth="400.0" style="-fx-text-fill: #4180ab;" text="Cadastrar funcionario">
+            <font>
+                <Font name="System Bold" size="35.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfMatricula" disable="true" layoutX="287.0" layoutY="121.0" prefHeight="26.0" prefWidth="460.0" promptText="Matricula" />
+        <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="109.0" prefHeight="51.0" prefWidth="181.0" style="-fx-text-fill: #4180ab;" text="Matricula">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label alignment="CENTER_RIGHT" layoutX="46.0" layoutY="166.0" prefHeight="51.0" prefWidth="194.0" style="-fx-text-fill: #4180ab;" text="Data adimissão">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <DatePicker fx:id="dtDataAdimissao" layoutX="287.0" layoutY="179.0" prefHeight="25.0" prefWidth="194.0" />
+        <Button layoutX="465.0" layoutY="603.0" onAction="#salvar" prefHeight="31.0" prefWidth="156.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Salvar">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label alignment="CENTER_RIGHT" layoutX="132.0" layoutY="229.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Setor">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfSetor" layoutX="287.0" layoutY="232.0" prefHeight="26.0" prefWidth="460.0" promptText="Setor" />
+        <Button layoutX="195.0" layoutY="603.0" onAction="#voltarPane" prefHeight="31.0" prefWidth="113.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label alignment="CENTER_RIGHT" layoutX="132.0" layoutY="284.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="CRF">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfCrf" layoutX="287.0" layoutY="287.0" prefHeight="26.0" prefWidth="460.0" promptText="(XX) XXXXX-XXXX" />
+        <Label alignment="CENTER_RIGHT" layoutX="59.0" layoutY="338.0" prefHeight="32.0" prefWidth="181.0" style="-fx-text-fill: #4180ab;" text="Especialidade">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfEspecialidade" layoutX="289.0" layoutY="341.0" prefHeight="26.0" prefWidth="460.0" />
+        <Label alignment="CENTER_RIGHT" layoutX="64.0" layoutY="401.0" prefHeight="32.0" prefWidth="181.0" style="-fx-text-fill: #4180ab;" text="Nome Fantasia">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfNomeFantasia" layoutX="289.0" layoutY="404.0" prefHeight="26.0" prefWidth="460.0" />
+    </children>
+</Pane>

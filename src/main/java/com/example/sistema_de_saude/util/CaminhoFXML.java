@@ -30,4 +30,10 @@ public final class CaminhoFXML {
     // Modulo Consulta
     public static final String PANE_CONSULTAS = "/com/example/sistema_de_saude/views/viewConsulta/PaneConsultas.fxml";
     public static final String PANE_ADICIONAR_REMEDIO = "/com/example/sistema_de_saude/views/viewConsulta/PaneAdicionar.fxml";
+
+    // Modulo Adiministrador
+    public static final String PANE_CADASTRO_FUNCIONARIO = "/com/example/sistema_de_saude/views/viewAdiministrador/PaneCadastroFuncionario.fxml";
+    public static final String PANE_CADASTRO_FUNCIONARIO_FINAL = "/com/example/sistema_de_saude/views/viewAdiministrador/PaneCadastroFuncionarioFinal.fxml";
+    public static final String PANE_CADASTRO_MEDICO = "/com/example/sistema_de_saude/views/viewAdiministrador/PaneCadastroMedico.fxml";
+
 }

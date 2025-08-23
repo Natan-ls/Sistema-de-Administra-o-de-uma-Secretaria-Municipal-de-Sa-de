@@ -8,13 +8,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.AdministradorController">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="1152.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.AdministradorController">
     <children>
         <VBox prefHeight="648.0" prefWidth="352.0" style="-fx-background-color: #4180ab;">
             <children>
-                <Pane prefHeight="122.0" prefWidth="352.0">
+                <Pane prefHeight="84.0" prefWidth="352.0">
                     <children>
-                        <Label layoutX="140.0" layoutY="14.0" prefHeight="51.0" prefWidth="169.0" text="S.A.S.M.S." textFill="WHITE">
+                        <Label layoutX="92.0" layoutY="14.0" prefHeight="51.0" prefWidth="169.0" text="S.A.S.M.S." textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="35.0" />
                             </font>
@@ -24,82 +24,71 @@
                                 <Font name="System Bold" size="100.0" />
                             </font>
                         </Label>
-                        <Label layoutX="137.0" layoutY="59.0" prefHeight="51.0" prefWidth="176.0" text="Administrador" textFill="WHITE">
+                    </children>
+                </Pane>
+                <Pane prefHeight="550.0" prefWidth="352.0">
+               <children>
+                        <Label layoutX="-2.0" layoutY="493.0" prefHeight="51.0" prefWidth="352.0" text="Administrador" textFill="WHITE">
                             <font>
                                 <Font name="System Bold" size="25.0" />
                             </font>
                         </Label>
-                    </children>
-                </Pane>
-                <Pane prefHeight="530.0" prefWidth="352.0">
-                    <children>
-                        <Button layoutX="72.0" layoutY="209.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Estoque">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
+                  <VBox layoutX="75.0" layoutY="14.0" prefHeight="338.0" prefWidth="202.0" spacing="30.0">
+                     <children>
+                              <Button onAction="#areaPacientes" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pacientes">
+                                  <font>
+                                      <Font name="System Bold" size="25.0" />
+                                  </font>
+                                  <cursor>
+                                      <Cursor fx:constant="HAND" />
+                                  </cursor>
+                              </Button>
+                              <Button onAction="#areaAgendamento" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Agendamentos">
+                                  <font>
+                                      <Font name="System Bold" size="23.0" />
+                                  </font>
+                                  <cursor>
+                                      <Cursor fx:constant="HAND" />
+                                  </cursor>
+                              </Button>
+                              <Button onAction="#areaEstoque" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Estoque">
+                                  <font>
+                                      <Font name="System Bold" size="25.0" />
+                                  </font>
+                                  <cursor>
+                                      <Cursor fx:constant="HAND" />
+                                  </cursor>
+                              </Button>
+                        <Button onAction="#areaLoteMedicamento" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Lote medicamento">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button layoutX="72.0" layoutY="267.0" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Dispensa">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
+                        <Button layoutX="10.0" layoutY="313.0" onAction="#areaCadastroFuncionario" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Cadastro funcionario">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button layoutX="72.0" layoutY="325.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Alertas">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
+                        <Button layoutX="10.0" layoutY="335.0" onAction="#areaFuncionario" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Funcionario">
+                           <font>
+                              <Font name="System Bold" size="25.0" />
+                           </font>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
                         </Button>
-                        <Button layoutX="72.0" layoutY="13.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Consultas">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Button layoutX="72.0" layoutY="71.0" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Prescrições">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Button layoutX="72.0" layoutY="129.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Histórico">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Button layoutX="72.0" layoutY="407.0" prefHeight="52.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pacientes">
-                            <font>
-                                <Font name="System Bold" size="25.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                        <Button layoutX="72.0" layoutY="465.0" prefHeight="40.0" prefWidth="209.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Agendamentos">
-                            <font>
-                                <Font name="System Bold" size="23.0" />
-                            </font>
-                            <cursor>
-                                <Cursor fx:constant="HAND" />
-                            </cursor>
-                        </Button>
-                    </children>
+                     </children>
+                  </VBox>
+               </children>
                 </Pane>
             </children>
         </VBox>
+      <Pane fx:id="painelPrincilpal" prefHeight="648.0" prefWidth="800.0" />
     </children>
 </HBox>
