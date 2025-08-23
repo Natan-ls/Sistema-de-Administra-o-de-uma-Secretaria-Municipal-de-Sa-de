@@ -5,6 +5,9 @@ import com.example.sistema_de_saude.dataAccess.*;
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorPane;
 import com.example.sistema_de_saude.util.ReceberDados;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -32,50 +35,102 @@ public class CadastroFinalFuncionarioController extends NavegadorPane implements
     }
 
     public void proximoPane(ActionEvent actionEvent) {
-        if (validarCampos()) {
-            try {
+        if (!validarCampos()) return;
 
-                PacienteDAO.getInstance().persist(user.getFuncionario().getPessoa().getPaciente());
+        EntityManager em = null;
+        EntityTransaction transaction = null;
 
-                // Atualizar dados do funcionário
-                Funcionario funcionario = user.getFuncionario();
-                funcionario.setPessoa(user.getFuncionario().getPessoa());
-                funcionario.setMatricula(Integer.parseInt(tfMatricula.getText()));
-                funcionario.setDataAdimissao(java.sql.Date.valueOf(dtDataAdimissao.getValue()));
+        try {
+            // 1. Obter o EntityManager e iniciar transação
+            em = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+            transaction = em.getTransaction();
+            transaction.begin();
 
-                // Persistir conforme tipo específico
-                switch (user.getTipoUser()) {
-                    case FARMACEUTICO -> {
-                        Farmaceutico farmaceutico = (Farmaceutico) funcionario;
-                        farmaceutico.setCrf(tfCrf.getText());
-                        FarmaceuticoDAO.getInstance().persist(farmaceutico);
-                    }
-                    case ADMINISTRADOR -> {
-                        Administrador admin = (Administrador) funcionario;
-                        admin.setSetor(tfSetor.getText());
-                        AdministradorDAO.getInstance().persist(admin);
-                    }
-                    case RECEPCIONISTA -> {
-                        Recepcionista recepcionista = (Recepcionista) funcionario;
-                        recepcionista.setSetor(tfSetor.getText());
-                        RecepcionistaDAO.getInstance().persist(recepcionista);
-                    }
-                    default -> {
-                        throw new IllegalArgumentException("Tipo de funcionário inválido para esta tela.");
-                    }
+            // 2. Criar a Pessoa
+            Pessoa pessoa = new Pessoa();
+            pessoa.setNome(user.getFuncionario().getPessoa().getNome());
+            pessoa.setCpf(user.getFuncionario().getPessoa().getCpf());
+            pessoa.setEmail(user.getFuncionario().getPessoa().getEmail());
+            pessoa.setDataNascimento(user.getFuncionario().getPessoa().getDataNascimento());
+            pessoa.setSexo(user.getFuncionario().getPessoa().getSexo());
+            pessoa.setEndereco(user.getFuncionario().getPessoa().getEndereco());
+            pessoa.setTelefone(user.getFuncionario().getPessoa().getTelefone());
+
+            // 3. Persistir a Pessoa
+            em.persist(pessoa);
+
+            // 4. Criar e persistir o Paciente
+            Paciente paciente = new Paciente();
+            paciente.setNumeroSus(user.getFuncionario().getPessoa().getPaciente().getNumeroSus());
+            paciente.setPessoa(pessoa);
+            em.persist(paciente);
+
+            // 5. Atualizar a pessoa com referência ao paciente
+            pessoa.setPaciente(paciente);
+            em.merge(pessoa);
+
+            // 6. Criar e persistir o Funcionário específico
+            Funcionario funcionario;
+            UsuarioSistema.TipoUser tipoUser = user.getTipoUser();
+
+            switch (tipoUser) {
+                case FARMACEUTICO -> {
+                    Farmaceutico farmaceutico = new Farmaceutico();
+                    farmaceutico.setPessoa(pessoa);
+                    farmaceutico.setMatricula(Integer.parseInt(tfMatricula.getText()));
+                    farmaceutico.setDataAdimissao(java.sql.Date.valueOf(dtDataAdimissao.getValue()));
+                    farmaceutico.setCrf(tfCrf.getText());
+                    em.persist(farmaceutico);
+                    funcionario = farmaceutico;
                 }
+                case ADMINISTRADOR -> {
+                    Administrador admin = new Administrador();
+                    admin.setPessoa(pessoa);
+                    admin.setMatricula(Integer.parseInt(tfMatricula.getText()));
+                    admin.setDataAdimissao(java.sql.Date.valueOf(dtDataAdimissao.getValue()));
+                    admin.setSetor(tfSetor.getText());
+                    em.persist(admin);
+                    funcionario = admin;
+                }
+                case RECEPCIONISTA -> {
+                    Recepcionista recepcionista = new Recepcionista();
+                    recepcionista.setPessoa(pessoa);
+                    recepcionista.setMatricula(Integer.parseInt(tfMatricula.getText()));
+                    recepcionista.setDataAdimissao(java.sql.Date.valueOf(dtDataAdimissao.getValue()));
+                    recepcionista.setSetor(tfSetor.getText());
+                    em.persist(recepcionista);
+                    funcionario = recepcionista;
+                }
+                default -> throw new IllegalArgumentException("Tipo de funcionário inválido.");
+            }
 
-                // Criar usuário do sistema
-                criarUsuarioSistema();
+            // 7. Criar e persistir o UsuarioSistema
+            UsuarioSistema usuarioSistema = new UsuarioSistema();
+            usuarioSistema.setFuncionario(funcionario);
+            usuarioSistema.setLogin(pessoa.getCpf());
+            usuarioSistema.setSenha("senha123");
+            usuarioSistema.setTipoUser(tipoUser);
+            usuarioSistema.setAtivo(true);
+            em.persist(usuarioSistema);
 
-                mostrarAlerta("Sucesso", "Funcionário cadastrado com sucesso!");
-                voltarPane(actionEvent);
+            // 8. Commit da transação
+            transaction.commit();
 
-            } catch (Exception e) {
-                mostrarAlerta("Erro", "Erro ao cadastrar funcionário: " + e.getMessage());
-                e.printStackTrace();
+            mostrarAlerta("Sucesso", "Funcionário cadastrado com sucesso!");
+            voltarPane(actionEvent);
+
+        } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
+            mostrarAlerta("Erro", "Erro ao cadastrar funcionário: " + e.getMessage());
+            e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
             }
         }
+
         trocarPane(CaminhoFXML.PANE_OPCOES_CRUD);
     }
 

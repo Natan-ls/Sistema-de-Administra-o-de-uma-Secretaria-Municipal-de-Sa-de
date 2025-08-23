@@ -1,14 +1,16 @@
 package com.example.sistema_de_saude.controller.adiministracao;
 
-import com.example.sistema_de_saude.entity.Medico;
-import com.example.sistema_de_saude.entity.Paciente;
-import com.example.sistema_de_saude.entity.UsuarioSistema;
+import com.example.sistema_de_saude.dataAccess.PessoaDAO;
+import com.example.sistema_de_saude.entity.*;
 import com.example.sistema_de_saude.dataAccess.MedicoDAO;
 import com.example.sistema_de_saude.dataAccess.PacienteDAO;
 import com.example.sistema_de_saude.dataAccess.UsuarioSistemaDAO;
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorPane;
 import com.example.sistema_de_saude.util.ReceberDados;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -45,30 +47,84 @@ public class CadastroFinalMedicoControlle extends NavegadorPane implements Receb
     public void salvar(ActionEvent actionEvent) {
         if (!validarCampos()) return;
 
-        try {
-            // Criar objeto médico
-            Medico medico = (Medico) user.getFuncionario();
-            medico.setPessoa(user.getFuncionario().getPessoa());
-            medico.setMatricula(Integer.parseInt(tfMatricula.getText()));
-            medico.setDataAdimissao(Date.valueOf(dtDataAdimissao.getValue()));
+        EntityManager em = null;
+        EntityTransaction transaction = null;
 
-            // Campos específicos do médico
+        try {
+            em = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+            transaction = em.getTransaction();
+            transaction.begin();
+
+            // 1. Criar apenas a Pessoa (SEM PACIENTE)
+            Pessoa pessoa = new Pessoa();
+            pessoa.setNome(user.getFuncionario().getPessoa().getNome());
+            pessoa.setCpf(user.getFuncionario().getPessoa().getCpf());
+            pessoa.setEmail(user.getFuncionario().getPessoa().getEmail());
+            pessoa.setDataNascimento(user.getFuncionario().getPessoa().getDataNascimento());
+            pessoa.setSexo(user.getFuncionario().getPessoa().getSexo());
+            pessoa.setEndereco(user.getFuncionario().getPessoa().getEndereco());
+            pessoa.setTelefone(user.getFuncionario().getPessoa().getTelefone());
+            em.persist(pessoa);
+
+            // 2. Criar APENAS o Médico (sem paciente)
+            Medico medico = new Medico();
+            medico.setPessoa(pessoa);
+            medico.setMatricula(Integer.parseInt(tfMatricula.getText()));
+            medico.setDataAdimissao(java.sql.Date.valueOf(dtDataAdimissao.getValue()));
             medico.setCrm(tfCrm.getText());
             medico.setEspecialidade(tfEspecialidade.getText());
             medico.setNomeFantasia(tfNomeFantasia.getText());
+            em.persist(medico);
 
-            // Persistir no banco
-            MedicoDAO.getInstance().persist(medico);
+            // 3. Criar UsuarioSistema
+            UsuarioSistema usuario = new UsuarioSistema();
+            usuario.setFuncionario(medico);
+            usuario.setLogin(gerarLogin(medico));
+            usuario.setSenha(gerarSenhaPadrao());
+            usuario.setTipoUser(UsuarioSistema.TipoUser.MEDICO);
+            usuario.setAtivo(true);
+            em.persist(usuario);
 
-            // Criar usuário do sistema
-            criarUsuarioSistema();
-
+            transaction.commit();
             mostrarAlerta("Sucesso", "Médico cadastrado com sucesso!");
             voltarPane(actionEvent);
 
         } catch (Exception e) {
+            if (transaction != null && transaction.isActive()) {
+                transaction.rollback();
+            }
             mostrarAlerta("Erro", "Erro ao cadastrar médico: " + e.getMessage());
             e.printStackTrace();
+        } finally {
+            if (em != null && em.isOpen()) {
+                em.close();
+            }
+        }
+    }
+
+    private String gerarLogin(Funcionario funcionario) {
+        String nome = funcionario.getPessoa().getNome().toLowerCase();
+        return nome.replace(" ", ".") + "@medico";
+    }
+
+    private String gerarSenhaPadrao() {
+        try {
+            String nome = user.getFuncionario().getPessoa().getNome();
+            String cpf = user.getFuncionario().getPessoa().getCpf();
+
+            //  Pegar o primeiro nome (até o primeiro espaço)
+            String primeiroNome = nome.split(" ")[0].toLowerCase();
+
+            //  Pegar os 3 primeiros dígitos do CPF (apenas números)
+            String digitosCpf = cpf.replaceAll("[^0-9]", "").substring(0, 3);
+
+            //  Combinar: primeiroNome + 3 dígitos do CPF
+            return primeiroNome + digitosCpf;
+
+        } catch (Exception e) {
+            // Fallback em caso de erro
+            System.err.println("Erro ao gerar senha: " + e.getMessage());
+            return String.valueOf(System.currentTimeMillis() % 1000000);
         }
     }
 
@@ -86,13 +142,6 @@ public class CadastroFinalMedicoControlle extends NavegadorPane implements Receb
 
     public void voltarPane(ActionEvent actionEvent) {
         trocarPane(CaminhoFXML.PANE_CADASTRO_FUNCIONARIO);
-    }
-
-    private void criarUsuarioSistema() {
-        user.setLogin(user.getFuncionario().getPessoa().getCpf());
-        user.setSenha(user.getFuncionario().getPessoa().getCpf());
-        user.setAtivo(true);
-        UsuarioSistemaDAO.getInstance().persist(user);
     }
 
     private void mostrarAlerta(String titulo, String mensagem) {
