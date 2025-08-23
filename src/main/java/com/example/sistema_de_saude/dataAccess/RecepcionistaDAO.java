@@ -28,10 +28,10 @@ public class RecepcionistaDAO {
     public List<Recepcionista> findAll() {
         return entityManager.createQuery("FROM Recepcionista").getResultList();
     }
-    public void persist(Recepcionista recepcionista, Pessoa pessoa) {
+    public void persist(Recepcionista recepcionista) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa);
+            //entityManager.persist(pessoa);
             entityManager.persist(recepcionista);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {

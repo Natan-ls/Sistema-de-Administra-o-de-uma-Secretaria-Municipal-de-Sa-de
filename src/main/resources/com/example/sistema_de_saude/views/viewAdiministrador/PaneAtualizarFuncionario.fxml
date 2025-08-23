@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.scene.text.Font?>
+<AnchorPane fx:id="painelPrincipal" prefHeight="648.0" prefWidth="800.0"
+            style="-fx-background-color: lightblue;"
+            xmlns="http://javafx.com/javafx/23.0.1"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.example.sistema_de_saude.controller.adiministracao.AtualizarUsuarioSistemaController">
+
+    <Label layoutX="178.0" layoutY="14.0" prefHeight="51.0" prefWidth="419.0"
+           style="-fx-text-fill: #4180ab;" text="Atualizar Usuário">
+        <font>
+            <Font name="System Bold" size="35.0" />
+        </font>
+    </Label>
+
+    <VBox layoutX="50.0" layoutY="100.0" spacing="15.0">
+
+        <HBox spacing="20.0">
+            <Label text="Login:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfLogin" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Senha:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfSenha" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Email:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfEmail" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Telefone:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfTelefone" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Endereço:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfEndereco" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Setor:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <TextField fx:id="tfSetor" prefWidth="400"/>
+        </HBox>
+
+        <HBox spacing="20.0">
+            <Label text="Data Admissão:" style="-fx-text-fill: #4180ab;" prefWidth="150"/>
+            <DatePicker fx:id="dtDataAdmissao" prefWidth="400"/>
+        </HBox>
+
+    </VBox>
+
+    <Button layoutX="322.0" layoutY="550.0" onAction="#atualizarUsuario"
+            prefHeight="31.0" prefWidth="131.0"
+            style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;"
+            text="Salvar">
+        <font>
+            <Font name="System Bold" size="15.0"/>
+        </font>
+        <cursor>
+            <Cursor fx:constant="HAND"/>
+        </cursor>
+    </Button>
+
+
+</AnchorPane>
+

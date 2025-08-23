@@ -29,10 +29,9 @@ public class PacienteDAO {
     public List<Paciente> findAll() {
         return entityManager.createQuery("FROM Paciente").getResultList();
     }
-    public void persist(Paciente paciente, Pessoa pessoa) {
+    public void persist(Paciente paciente) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa);
             entityManager.persist(paciente);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {

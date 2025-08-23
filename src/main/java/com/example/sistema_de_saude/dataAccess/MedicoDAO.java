@@ -28,10 +28,10 @@ public class MedicoDAO {
     public List<Medico> findAll() {
         return entityManager.createQuery("FROM Medico").getResultList();
     }
-    public void persist(Medico medico, Pessoa pessoa) {
+    public void persist(Medico medico) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa); //add pessoa primeiro
+            //entityManager.persist(pessoa); //add pessoa primeiro
             entityManager.persist(medico);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {

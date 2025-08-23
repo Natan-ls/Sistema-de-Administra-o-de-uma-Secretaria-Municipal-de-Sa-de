@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.CadastroFinalFuncionarioControlle">
+<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.CadastroFinalFuncionarioController">
     <children>
         <Label layoutX="208.0" layoutY="42.0" prefHeight="51.0" prefWidth="400.0" style="-fx-text-fill: #4180ab;" text="Cadastrar funcionario">
             <font>
                 <Font name="System Bold" size="35.0" />
             </font>
         </Label>
-        <TextField fx:id="tfMatricuka" disable="true" layoutX="291.0" layoutY="233.0" prefHeight="26.0" prefWidth="460.0" promptText="Matricula" />
+        <TextField fx:id="tfMatricula" disable="true" layoutX="291.0" layoutY="233.0" prefHeight="26.0" prefWidth="460.0" promptText="Matricula" />
         <Label alignment="CENTER_RIGHT" layoutX="63.0" layoutY="221.0" prefHeight="51.0" prefWidth="181.0" style="-fx-text-fill: #4180ab;" text="Matricula">
             <font>
                 <Font name="System Bold" size="22.0" />
@@ -49,7 +49,7 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <Label alignment="CENTER_RIGHT" layoutX="136.0" layoutY="396.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="CRF">
+        <Label fx:id="lblCrf" alignment="CENTER_RIGHT" layoutX="136.0" layoutY="396.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="CRF">
             <font>
                 <Font name="System Bold" size="22.0" />
             </font>

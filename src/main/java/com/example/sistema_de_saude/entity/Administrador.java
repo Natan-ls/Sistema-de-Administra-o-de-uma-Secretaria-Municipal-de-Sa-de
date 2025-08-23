@@ -6,9 +6,6 @@ import jakarta.persistence.*;
 @DiscriminatorValue("Administrador")
 public class Administrador extends Funcionario{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String setor;
 
     @Override

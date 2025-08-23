@@ -33,6 +33,7 @@ public class UsuarioSistemaDAO {
     public void persist(UsuarioSistema pessoa) {
         try {
             entityManager.getTransaction().begin();
+            pessoa.setFuncionario(entityManager.merge(pessoa.getFuncionario()));
             entityManager.persist(pessoa);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {

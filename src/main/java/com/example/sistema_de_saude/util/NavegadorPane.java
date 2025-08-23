@@ -18,6 +18,10 @@ public abstract class NavegadorPane {
         this.painel = painel;
     }
 
+    protected Pane getPainel() {
+        return painel;
+    }
+
     /** Chamado pelo NavegadorTela logo após o load() da tela principal */
     public void setUsuario(UsuarioSistema usuario) {
         this.usuario = usuario;

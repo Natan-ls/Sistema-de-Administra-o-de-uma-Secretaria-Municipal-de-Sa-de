@@ -22,10 +22,10 @@ public class Pessoa {
     @Column(unique = true, nullable = true)
     private String cpf;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Funcionario funcionario;
 
-    @OneToOne(mappedBy = "pessoa")
+    @OneToOne(mappedBy = "pessoa", cascade = CascadeType.ALL, orphanRemoval = true)
     private Paciente paciente;
 
     public Pessoa(){}

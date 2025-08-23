@@ -8,9 +8,6 @@ import java.util.Date;
 @DiscriminatorValue("Recepcionista")
 public class Recepcionista extends Funcionario{
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
     private String setor;
 
     public Recepcionista(){};

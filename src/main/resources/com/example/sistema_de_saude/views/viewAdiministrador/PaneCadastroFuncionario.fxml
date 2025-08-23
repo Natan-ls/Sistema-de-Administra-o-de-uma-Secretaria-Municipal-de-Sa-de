@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.CadastroFuncionarioControlle">
+<Pane fx:id="painelPrincipal" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.adiministracao.CadastroFuncionarioController">
     <children>
         <Label layoutX="208.0" layoutY="14.0" prefHeight="51.0" prefWidth="400.0" style="-fx-text-fill: #4180ab;" text="Cadastrar funcionario">
             <font>
@@ -88,7 +88,7 @@
          </toggleGroup>
       </RadioButton>
       <RadioButton layoutX="321.0" layoutY="469.0" mnemonicParsing="false" text="Farmaceutico" toggleGroup="$tgTipoFuncionario" />
-      <RadioButton layoutX="471.0" layoutY="469.0" mnemonicParsing="false" text="Medico" toggleGroup="$tgTipoFuncionario" />
-      <RadioButton layoutX="616.0" layoutY="469.0" mnemonicParsing="false" text="Administrado" toggleGroup="$tgTipoFuncionario" />
+      <RadioButton layoutX="471.0" layoutY="469.0" mnemonicParsing="false" text="Médico" toggleGroup="$tgTipoFuncionario" />
+      <RadioButton layoutX="616.0" layoutY="469.0" mnemonicParsing="false" text="Administrador" toggleGroup="$tgTipoFuncionario" />
     </children>
 </Pane>

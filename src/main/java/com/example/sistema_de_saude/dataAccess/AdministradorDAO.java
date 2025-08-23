@@ -28,10 +28,10 @@ public class AdministradorDAO {
     public List<Administrador> findAll() {
         return entityManager.createQuery("FROM Administrador").getResultList();
     }
-    public void persist(Administrador administrador, Pessoa pessoa) {
+    public void persist(Administrador administrador) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa);
+            //entityManager.persist(pessoa);
             entityManager.persist(administrador);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {

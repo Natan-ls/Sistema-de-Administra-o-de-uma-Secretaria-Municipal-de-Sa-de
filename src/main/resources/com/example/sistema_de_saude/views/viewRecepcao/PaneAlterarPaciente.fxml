@@ -8,75 +8,75 @@
 <?import javafx.scene.text.Font?>
 
 <AnchorPane fx:id="painelPrincipal" prefHeight="648.0" prefWidth="800.0" style="-fx-background-color: lightblue;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.sistema_de_saude.controller.recepcao.AlterarPacienteController">
-   <children>
-      <Label layoutX="261.0" layoutY="75.0" prefHeight="51.0" prefWidth="321.0" style="-fx-text-fill: #4180ab;" text="Alterar Paciente">
-         <font>
-            <Font name="System Bold" size="35.0" />
-         </font>
-      </Label>
-      <Label layoutX="17.0" layoutY="441.0" prefHeight="51.0" prefWidth="30.0" style="-fx-text-fill: #4180ab;" text="🔍">
-         <font>
-            <Font name="System Bold" size="25.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfCpf" layoutX="47.0" layoutY="450.0" prefHeight="33.0" prefWidth="321.0" promptText="Digite o CPF">
-         <font>
-            <Font size="14.0" />
-         </font>
-      </TextField>
-      <Button layoutX="598.0" layoutY="447.0" onAction="#alterarPaciente" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: white; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Alterar Paciente">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <TextField fx:id="tfNome" layoutX="103.0" layoutY="218.0" prefHeight="25.0" prefWidth="212.0" promptText="Nome completo" />
-      <Label layoutX="28.0" layoutY="201.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <Label layoutX="350.0" layoutY="272.0" prefHeight="51.0" prefWidth="73.0" style="-fx-text-fill: #4180ab;" text="Email:">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfEmail" layoutX="421.0" layoutY="285.0" prefHeight="26.0" prefWidth="372.0" promptText="Email do paciente" />
-      <Label layoutX="482.0" layoutY="205.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfSus" layoutX="590.0" layoutY="218.0" prefHeight="25.0" prefWidth="194.0" promptText="Número cartão do SUS" />
-      <Label layoutX="28.0" layoutY="282.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Telefone:">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfTelefone" layoutX="136.0" layoutY="286.0" prefHeight="26.0" prefWidth="212.0" promptText="Endereço do paciente" />
-      <Button layoutX="17.0" layoutY="600.0" onAction="#voltarPane" prefHeight="39.0" prefWidth="91.0" style="-fx-background-color: white; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
-         <font>
-            <Font name="System Bold" size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Button layoutX="401.0" layoutY="451.0" onAction="#pesquisar" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pesquisar">
-         <font>
-            <Font name="System Bold" size="15.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-      <Label layoutX="32.0" layoutY="367.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
-         <font>
-            <Font name="System Bold" size="22.0" />
-         </font>
-      </Label>
-      <TextField fx:id="tfEndereco" layoutX="140.0" layoutY="371.0" prefHeight="26.0" prefWidth="644.0" promptText="Endereço do paciente" />
-   </children>
+    <children>
+        <Label layoutX="261.0" layoutY="75.0" prefHeight="51.0" prefWidth="321.0" style="-fx-text-fill: #4180ab;" text="Alterar Paciente">
+            <font>
+                <Font name="System Bold" size="35.0" />
+            </font>
+        </Label>
+        <Label layoutX="17.0" layoutY="441.0" prefHeight="51.0" prefWidth="30.0" style="-fx-text-fill: #4180ab;" text="🔍">
+            <font>
+                <Font name="System Bold" size="25.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfCpf" layoutX="47.0" layoutY="450.0" prefHeight="33.0" prefWidth="321.0" promptText="Digite o CPF">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </TextField>
+        <Button layoutX="598.0" layoutY="447.0" onAction="#alterarPaciente" prefHeight="39.0" prefWidth="186.0" style="-fx-background-color: white; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Alterar Paciente">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <TextField fx:id="tfNome" layoutX="103.0" layoutY="218.0" prefHeight="25.0" prefWidth="212.0" promptText="Nome completo" />
+        <Label layoutX="28.0" layoutY="201.0" prefHeight="51.0" prefWidth="84.0" style="-fx-text-fill: #4180ab;" text="Nome:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <Label layoutX="350.0" layoutY="272.0" prefHeight="51.0" prefWidth="73.0" style="-fx-text-fill: #4180ab;" text="Email:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfEmail" layoutX="421.0" layoutY="285.0" prefHeight="26.0" prefWidth="372.0" promptText="Email do paciente" />
+        <Label layoutX="482.0" layoutY="205.0" prefHeight="51.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Cod. SUS:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfSus" layoutX="590.0" layoutY="218.0" prefHeight="25.0" prefWidth="194.0" promptText="Número cartão do SUS" />
+        <Label layoutX="28.0" layoutY="282.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Telefone:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfTelefone" layoutX="136.0" layoutY="286.0" prefHeight="26.0" prefWidth="212.0" promptText="Endereço do paciente" />
+        <Button layoutX="17.0" layoutY="600.0" onAction="#voltarPane" prefHeight="39.0" prefWidth="91.0" style="-fx-background-color: white; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Voltar">
+            <font>
+                <Font name="System Bold" size="18.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Button layoutX="401.0" layoutY="451.0" onAction="#pesquisar" prefHeight="31.0" prefWidth="172.0" style="-fx-background-color: WHITE; -fx-text-fill: #4180ab; -fx-background-radius: 10;" text="Pesquisar">
+            <font>
+                <Font name="System Bold" size="15.0" />
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND" />
+            </cursor>
+        </Button>
+        <Label layoutX="32.0" layoutY="367.0" prefHeight="32.0" prefWidth="108.0" style="-fx-text-fill: #4180ab;" text="Endereço:">
+            <font>
+                <Font name="System Bold" size="22.0" />
+            </font>
+        </Label>
+        <TextField fx:id="tfEndereco" layoutX="140.0" layoutY="371.0" prefHeight="26.0" prefWidth="644.0" promptText="Endereço do paciente" />
+    </children>
 </AnchorPane>

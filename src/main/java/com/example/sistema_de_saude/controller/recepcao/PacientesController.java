@@ -142,7 +142,7 @@ public class PacientesController extends NavegadorPane {
         Paciente paciente = new Paciente(tfSus.getText(), pessoa);
         pessoa.setPaciente(paciente);
 
-        PacienteDAO.getInstance().persist(paciente, pessoa);
+        PacienteDAO.getInstance().persist(paciente);
     }
 
     private void limpar(){

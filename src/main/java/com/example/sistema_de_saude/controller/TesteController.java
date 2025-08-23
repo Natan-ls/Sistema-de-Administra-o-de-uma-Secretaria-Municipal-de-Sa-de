@@ -12,6 +12,7 @@ public class TesteController extends NavegadorPane {
     @FXML
     public void initialize() {
         this.usuario = new UsuarioSistema();
+        usuario.setLogin("Eu");
         usuario.setTipoUser(UsuarioSistema.TipoUser.ADMINISTRADOR); // ou um default
     }
 

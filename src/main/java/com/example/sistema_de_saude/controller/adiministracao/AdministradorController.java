@@ -1,6 +1,5 @@
 package com.example.sistema_de_saude.controller.adiministracao;
 
-import com.example.sistema_de_saude.entity.Funcionario;
 import com.example.sistema_de_saude.entity.UsuarioSistema;
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorPane;
@@ -23,11 +22,8 @@ public class AdministradorController extends NavegadorPane implements ReceberDad
     @FXML
     public void initialize() throws IOException {
         this.setPainel(painelPrincilpal);
-        // Carrega um painel inicial padrão (opcional)
-        Pane inicial = FXMLLoader.load(getClass().getResource(CaminhoFXML.PANE_CADASTRO_FUNCIONARIO));
+        Pane inicial = FXMLLoader.load(getClass().getResource(CaminhoFXML.PANE_OPCOES_CRUD));
         painelPrincilpal.getChildren().setAll(inicial);
-
-        // Atualiza o label do usuário se estiver disponível
         atualizarLabelUsuario();
     }
 
@@ -42,7 +38,7 @@ public class AdministradorController extends NavegadorPane implements ReceberDad
     }
 
     public void areaAgendamento(ActionEvent actionEvent) {
-        trocarPane(CaminhoFXML.PANE_AGENDAMENTO);
+        trocarPane(CaminhoFXML.PANE_TABELA_CONSULTAS);
     }
 
     public void areaEstoque(ActionEvent actionEvent) {
@@ -59,7 +55,7 @@ public class AdministradorController extends NavegadorPane implements ReceberDad
 
     public void areaFuncionario(ActionEvent actionEvent) {
         // Se tiver um painel específico para gerenciar funcionários
-        trocarPane(CaminhoFXML.PANE_CADASTRO_FUNCIONARIO);
+        trocarPane(CaminhoFXML.PANE_TABELA_USUARIOS);
     }
 
     @Override

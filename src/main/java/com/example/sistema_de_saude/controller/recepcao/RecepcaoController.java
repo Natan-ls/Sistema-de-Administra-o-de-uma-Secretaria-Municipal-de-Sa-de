@@ -1,10 +1,7 @@
 package com.example.sistema_de_saude.controller.recepcao;
 
-import com.example.sistema_de_saude.entity.Recepcionista;
-import com.example.sistema_de_saude.entity.UsuarioSistema;
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorPane;
-import com.example.sistema_de_saude.util.ReceberDados;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -38,7 +35,7 @@ public class RecepcaoController extends NavegadorPane {
 
 
     public void moduloAgendamento(ActionEvent actionEvent) {
-        trocarPane(CaminhoFXML.PANE_AGENDAMENTO);
+        trocarPane(CaminhoFXML.PANE_TABELA_CONSULTAS);
     }
 
 }

@@ -29,10 +29,12 @@ public class FuncionarioDAO {
     public List<Funcionario> findAll() {
         return entityManager.createQuery("FROM Funcionario").getResultList();
     }
-    public void persist(Funcionario funcionario, Pessoa pessoa) {
+
+    public void persist(Funcionario funcionario) {
         try {
             entityManager.getTransaction().begin();
-            entityManager.persist(pessoa);
+            //entityManager.persist(pessoa);
+            funcionario.setPessoa(entityManager.merge(funcionario.getPessoa()));
             entityManager.persist(funcionario);
             entityManager.getTransaction().commit();
         } catch (Exception ex) {
