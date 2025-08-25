@@ -90,6 +90,14 @@ public class TipoMedicamentoDAO {
         }
     }
 
+    public List<TipoMedicamento> findAllFresh() {
+        // Limpa só o cache do EntityManager para forçar o reload
+        entityManager.clear(); // cuidado: desanexa todas as entidades gerenciadas
+        return entityManager.createQuery("FROM TipoMedicamento", TipoMedicamento.class)
+                .getResultList();
+    }
+
+
 
 }
 

@@ -70,7 +70,7 @@ public class MedicamentoDAO {
     public Medicamento getByNomeMedicamento(String nome) {
         try {
             return entityManager.createQuery(
-                            "SELECT m FROM Medicamento WHERE LOWER(m.nome) = LOWER(:nome)",
+                            "SELECT m FROM Medicamento m WHERE LOWER(m.nome) = LOWER(:nome)",
                             Medicamento.class)
                     .setParameter("nome", nome)
                     .getSingleResult();

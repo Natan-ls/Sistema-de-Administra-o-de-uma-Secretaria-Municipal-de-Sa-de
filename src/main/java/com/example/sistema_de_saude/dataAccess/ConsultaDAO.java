@@ -1,6 +1,7 @@
 package com.example.sistema_de_saude.dataAccess;
 
 import com.example.sistema_de_saude.entity.Consulta;
+import com.example.sistema_de_saude.entity.TipoMedicamento;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
@@ -66,5 +67,12 @@ public class ConsultaDAO {
             ex.printStackTrace();
         }
     }
+
+    public List<TipoMedicamento> findAllFresh() {
+        entityManager.clear();
+        return entityManager.createQuery("FROM TipoMedicamento", TipoMedicamento.class)
+                .getResultList();
+    }
+
 }
 

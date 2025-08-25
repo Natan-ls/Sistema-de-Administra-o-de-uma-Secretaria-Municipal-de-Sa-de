@@ -3,6 +3,7 @@ package com.example.sistema_de_saude.controller.adiministracao;
 import com.example.sistema_de_saude.entity.*;
 import com.example.sistema_de_saude.dataAccess.*;
 import com.example.sistema_de_saude.util.CaminhoFXML;
+import com.example.sistema_de_saude.util.HashSenha;
 import com.example.sistema_de_saude.util.NavegadorPane;
 import com.example.sistema_de_saude.util.ReceberDados;
 import jakarta.persistence.EntityManager;
@@ -108,7 +109,7 @@ public class CadastroFinalFuncionarioController extends NavegadorPane implements
             UsuarioSistema usuarioSistema = new UsuarioSistema();
             usuarioSistema.setFuncionario(funcionario);
             usuarioSistema.setLogin(pessoa.getCpf());
-            usuarioSistema.setSenha("senha123");
+            usuarioSistema.setSenha(gerarSenhaPadrao());
             usuarioSistema.setTipoUser(tipoUser);
             usuarioSistema.setAtivo(true);
             em.persist(usuarioSistema);
@@ -132,6 +133,27 @@ public class CadastroFinalFuncionarioController extends NavegadorPane implements
         }
 
         trocarPane(CaminhoFXML.PANE_OPCOES_CRUD);
+    }
+
+    private String gerarSenhaPadrao() {
+        try {
+            String nome = user.getFuncionario().getPessoa().getNome();
+            String cpf = user.getFuncionario().getPessoa().getCpf();
+
+            //  Pegar o primeiro nome (até o primeiro espaço)
+            String primeiroNome = nome.split(" ")[0].toLowerCase();
+
+            //  Pegar os 3 primeiros dígitos do CPF (apenas números)
+            String digitosCpf = cpf.replaceAll("[^0-9]", "").substring(0, 3);
+
+            //  Combinar: primeiroNome + 3 dígitos do CPF
+
+            return HashSenha.gerarHash(primeiroNome + digitosCpf);
+        } catch (Exception e) {
+            // Fallback em caso de erro
+            System.err.println("Erro ao gerar senha: " + e.getMessage());
+            return HashSenha.gerarHash(String.valueOf(System.currentTimeMillis() % 1000000));
+        }
     }
 
     public void voltarPane(ActionEvent actionEvent) {

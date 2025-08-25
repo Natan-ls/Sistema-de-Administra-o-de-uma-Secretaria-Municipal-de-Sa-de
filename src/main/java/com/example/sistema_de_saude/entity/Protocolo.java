@@ -10,13 +10,14 @@ import java.util.List;
 public class Protocolo {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "fkFarmaceutico", nullable = false)
+    @JoinColumn(name = "fkFarmaceutico", nullable = true)
     private Farmaceutico farmaceutico;
 
-    @ManyToMany
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
     @JoinTable(
             name = "protocolo_medicamento",
             joinColumns = @JoinColumn(name = "fkProtocolo"),

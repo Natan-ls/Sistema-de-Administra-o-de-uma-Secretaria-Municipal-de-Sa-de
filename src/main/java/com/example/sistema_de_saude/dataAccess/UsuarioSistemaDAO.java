@@ -71,19 +71,18 @@ public class UsuarioSistemaDAO {
         }
     }
 
-    public UsuarioSistema validarUser(String user, String senha) {
+    public UsuarioSistema validarUser(String login) {
         try {
             // Validação básica
-            if (user == null || user.trim().isEmpty() || senha == null || senha.trim().isEmpty()) {
+            if (login == null || login.trim().isEmpty()) {
                 return null;
             }
 
             // QUERY SEGURA com parâmetros nomeados
-            String jpql = "SELECT u FROM UsuarioSistema u WHERE u.login = :user AND u.senha = :senha";
+            String jpql = "SELECT u FROM UsuarioSistema u WHERE u.login = :login";
 
             return entityManager.createQuery(jpql, UsuarioSistema.class)
-                    .setParameter("user", user.trim())
-                    .setParameter("senha", senha.trim())
+                    .setParameter("login", login.trim()) // <--- corrigido aqui
                     .getSingleResult();
 
         } catch (NoResultException e) {
@@ -93,44 +92,6 @@ public class UsuarioSistemaDAO {
         }
     }
 
-    public UsuarioSistema trocarSenhaPorCpf(String cpf, String novaSenha) {
-        try {
-            // Busca pessoa pelo CPF
-            PessoaDAO pessoaDAO = PessoaDAO.getInstance();
-            Pessoa pessoa = pessoaDAO.findByCpf(cpf);
-
-            if (pessoa == null) {
-                return null; // CPF não encontrado
-            }
-
-            // Busca funcionário relacionado à pessoa
-            FuncionarioDAO funcionarioDAO = FuncionarioDAO.getInstance();
-            Funcionario funcionario = funcionarioDAO.findByPessoaId(pessoa.getId());
-
-            if (funcionario == null) {
-                return null; // Pessoa não é funcionário
-            }
-
-            // Busca usuário do sistema relacionado ao funcionário
-            String jpql = "SELECT u FROM UsuarioSistema u WHERE u.funcionario.id = :funcionarioId";
-            UsuarioSistema usuario = entityManager.createQuery(jpql, UsuarioSistema.class)
-                    .setParameter("funcionarioId", funcionario.getId())
-                    .getSingleResult();
-
-            if (usuario == null) {
-                return null; // Funcionário não tem usuário
-            }
-
-            // Atualiza a senha
-            usuario.setSenha(novaSenha);
-            return usuario; // Retorna o usuário para fazer merge depois
-
-        } catch (NoResultException e) {
-            return null;
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao buscar usuário para troca de senha: " + e.getMessage(), e);
-        }
-    }
 
 }
 

@@ -2,6 +2,7 @@ package com.example.sistema_de_saude.dataAccess;
 
 
 import com.example.sistema_de_saude.entity.LoteMedicamento;
+import com.example.sistema_de_saude.entity.Protocolo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
 
@@ -12,6 +13,11 @@ public class LoteMedicamentoDAO {
 
     private static LoteMedicamentoDAO instance;
     protected EntityManager entityManager;
+
+    public EntityManager getEntityManager() {
+        return entityManager;
+    }
+
     public static LoteMedicamentoDAO getInstance() {
         if (instance == null) {
             instance = new LoteMedicamentoDAO();
@@ -67,4 +73,25 @@ public class LoteMedicamentoDAO {
             ex.printStackTrace();
         }
     }
+
+    public void atualizarEntrega(Protocolo protocolo, List<LoteMedicamento> lotesParaAtualizar) {
+        try {
+            entityManager.getTransaction().begin();
+
+            // Atualiza todos os lotes
+            for (LoteMedicamento lote : lotesParaAtualizar) {
+                entityManager.merge(lote);
+            }
+
+            // Atualiza protocolo (status e dataEntrega)
+            entityManager.merge(protocolo);
+
+            entityManager.getTransaction().commit();
+        } catch (Exception e) {
+            e.printStackTrace();
+            entityManager.getTransaction().rollback();
+        }
+    }
+
+
 }

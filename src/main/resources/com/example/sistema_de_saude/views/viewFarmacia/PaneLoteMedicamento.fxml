@@ -26,63 +26,67 @@
                 <Cursor fx:constant="HAND" />
             </cursor>
         </Button>
-        <VBox layoutX="84.0" layoutY="130.0" prefHeight="400.0" prefWidth="632.0">
-         <children>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0">
-               <children>
-                    <Label prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Nome medicamento">
-                        <font>
-                            <Font name="System Bold" size="25.0" />
-                        </font>
-                    </Label>
-                    <TextField fx:id="tfNomeRemedio" prefHeight="26.0" prefWidth="363.0" promptText="Digite o nome do remédio" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="607.0">
-               <children>
-                  <Label prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Tipo medicamento">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <ChoiceBox fx:id="cbTipoMedicamento" prefWidth="150.0" />
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" layoutX="10.0" layoutY="110.0" prefHeight="100.0" prefWidth="607.0">
-               <children>
-                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="321.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data fabricação">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
+
+        <VBox layoutX="29.0" layoutY="130.0" prefHeight="400.0" prefWidth="761.0" spacing="15">
+            <children>
+                <!-- Nome do medicamento -->
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="10">
+                    <children>
+                        <Label style="-fx-text-fill: #4180ab;" text="Nome medicamento">
+                            <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <DatePicker fx:id="dtFabricacao" />
-                     </children>
-                  </VBox>
-                  <VBox alignment="CENTER" prefHeight="100.0" prefWidth="294.0">
-                     <children>
-                        <Label alignment="CENTER" prefHeight="51.0" prefWidth="282.0" style="-fx-text-fill: #4180ab;" text="Data validade">
-                           <font>
-                              <Font name="System Bold" size="25.0" />
-                           </font>
+                        <ChoiceBox fx:id="cbNomeRemedio" prefWidth="200.0" />
+                    </children>
+                </HBox>
+
+                <!-- Tipo, Unidade e Quantidade -->
+                <HBox alignment="CENTER_LEFT" prefHeight="50.0" spacing="10">
+                    <children>
+                        <Label style="-fx-text-fill: #4180ab;" text="Tipo">
+                            <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <DatePicker fx:id="dtValidade" />
-                     </children>
-                  </VBox>
-               </children>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="202.0">
-               <children>
-                  <Label prefHeight="51.0" prefWidth="258.0" style="-fx-text-fill: #4180ab;" text="Quantidade">
-                     <font>
-                        <Font name="System Bold" size="25.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfQuantidade" prefHeight="26.0" prefWidth="363.0" promptText="Quantidade" />
-               </children>
-            </HBox>
-         </children>
+                        <ChoiceBox fx:id="cbTipoMedicamento" prefWidth="150.0" />
+
+                        <Label style="-fx-text-fill: #4180ab;" text="Unidade">
+                            <font><Font name="System Bold" size="25.0" /></font>
+                        </Label>
+                        <ChoiceBox fx:id="cbUnidadeMedida" prefWidth="100.0" />
+
+                        <Label style="-fx-text-fill: #4180ab;" text="Qtd. Caixa">
+                            <font><Font name="System Bold" size="25.0" /></font>
+                        </Label>
+                        <ChoiceBox fx:id="cbQuantidadeCaixa" prefWidth="100.0" />
+                    </children>
+                </HBox>
+
+                <!-- Datas -->
+                <HBox alignment="CENTER_LEFT" spacing="50">
+                    <children>
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label style="-fx-text-fill: #4180ab;" text="Data fabricação">
+                                <font><Font name="System Bold" size="25.0" /></font>
+                            </Label>
+                            <DatePicker fx:id="dtFabricacao" />
+                        </VBox>
+                        <VBox alignment="CENTER" spacing="5">
+                            <Label style="-fx-text-fill: #4180ab;" text="Data validade">
+                                <font><Font name="System Bold" size="25.0" /></font>
+                            </Label>
+                            <DatePicker fx:id="dtValidade" />
+                        </VBox>
+                    </children>
+                </HBox>
+
+                <!-- Quantidade -->
+                <HBox alignment="CENTER_LEFT" spacing="10">
+                    <children>
+                        <Label style="-fx-text-fill: #4180ab;" text="Quantidade">
+                            <font><Font name="System Bold" size="25.0" /></font>
+                        </Label>
+                        <TextField fx:id="tfQuantidade" prefWidth="150.0" promptText="Quantidade" />
+                    </children>
+                </HBox>
+            </children>
         </VBox>
     </children>
 </AnchorPane>

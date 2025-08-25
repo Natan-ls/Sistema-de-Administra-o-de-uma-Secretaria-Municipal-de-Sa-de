@@ -141,7 +141,8 @@ public class CadastroRemedioController extends NavegadorPane {
             mostrarAlerta("Erro", "Ocorreu um erro ao salvar no banco de dados.", Alert.AlertType.ERROR);
         }
 
-        trocarPane(CaminhoFXML.PANE_ESTOQUE);
+
+        //trocarPane(CaminhoFXML.PANE_ESTOQUE);
     }
 
 

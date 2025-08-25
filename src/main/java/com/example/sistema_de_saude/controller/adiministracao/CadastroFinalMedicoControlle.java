@@ -6,6 +6,7 @@ import com.example.sistema_de_saude.dataAccess.MedicoDAO;
 import com.example.sistema_de_saude.dataAccess.PacienteDAO;
 import com.example.sistema_de_saude.dataAccess.UsuarioSistemaDAO;
 import com.example.sistema_de_saude.util.CaminhoFXML;
+import com.example.sistema_de_saude.util.HashSenha;
 import com.example.sistema_de_saude.util.NavegadorPane;
 import com.example.sistema_de_saude.util.ReceberDados;
 import jakarta.persistence.EntityManager;
@@ -119,12 +120,11 @@ public class CadastroFinalMedicoControlle extends NavegadorPane implements Receb
             String digitosCpf = cpf.replaceAll("[^0-9]", "").substring(0, 3);
 
             //  Combinar: primeiroNome + 3 dígitos do CPF
-            return primeiroNome + digitosCpf;
-
+            return HashSenha.gerarHash(primeiroNome + digitosCpf);
         } catch (Exception e) {
             // Fallback em caso de erro
             System.err.println("Erro ao gerar senha: " + e.getMessage());
-            return String.valueOf(System.currentTimeMillis() % 1000000);
+            return HashSenha.gerarHash(String.valueOf(System.currentTimeMillis() % 1000000));
         }
     }
 

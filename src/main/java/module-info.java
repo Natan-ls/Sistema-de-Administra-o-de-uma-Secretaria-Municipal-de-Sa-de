@@ -16,6 +16,7 @@ module com.example.sistema_de_saude {
     // MySQL Connector
     requires mysql.connector.j;
     requires java.rmi;
+    requires jbcrypt;
 
     // ABERTURAS PARA REFLECTION (Hibernate e JavaFX FXMLLoader)
     opens com.example.sistema_de_saude to
@@ -34,7 +35,7 @@ module com.example.sistema_de_saude {
     opens com.example.sistema_de_saude.controller.consulta to javafx.fxml;
     opens com.example.sistema_de_saude.controller.farmacia to javafx.fxml;
     opens com.example.sistema_de_saude.controller.adiministracao to javafx.fxml;
-
+    opens com.example.sistema_de_saude.util to javafx.fxml;
     opens com.example.sistema_de_saude.views to javafx.fxml;
 
     // EXPORTS - pacotes públicos do módulo
