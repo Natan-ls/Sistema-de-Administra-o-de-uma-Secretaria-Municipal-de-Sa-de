@@ -7,9 +7,19 @@ import com.example.sistema_de_saude.util.HashSenha;
 import com.example.sistema_de_saude.util.NavegadorTela;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+
+import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.io.IOException;
 
 public class LoginController {
 
@@ -36,15 +46,14 @@ public class LoginController {
                 return;
             }
 
-            // Verifica se a senha é hash ou texto puro
             String senhaBanco = user.getSenha();
             boolean senhaValida;
 
             if (senhaBanco.startsWith("$2a$") || senhaBanco.startsWith("$2b$")) {
-                // senha em hash
+
                 senhaValida = HashSenha.verificarSenha(senha, senhaBanco);
             } else {
-                // senha antiga em texto puro
+
                 senhaValida = senhaBanco.equals(senha);
             }
 
@@ -52,8 +61,7 @@ public class LoginController {
                 showAlert("Usuário ou senha inválidos!");
                 return;
             }
-
-            // Redireciona conforme tipo de usuário
+            showAlert("Bem vindo! "+user.getFuncionario().getPessoa().getNome());
             switch (user.getTipoUser()){
                 case MEDICO -> NavegadorTela.navegarPara(CaminhoFXML.VIEW_CONSULTA, user);
                 case FARMACEUTICO -> NavegadorTela.navegarPara(CaminhoFXML.VIEW_FARMACIA, user);
@@ -68,16 +76,24 @@ public class LoginController {
         }
     }
 
-    @FXML
-    public void abrirAlterarSenha() {
-        // Navega para a tela de alteração de senha
-        NavegadorTela.navegarPara(CaminhoFXML.VIEW_ALTERAR_SENHA, user);
-    }
-
     private void showAlert(String msg) {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setHeaderText(null);
         alert.setContentText(msg);
         alert.showAndWait();
+    }
+
+    @FXML
+    public void abrirTelaEsqueciSenha(javafx.scene.input.MouseEvent mouseEvent) {
+        try {
+            Parent root = FXMLLoader.load(getClass().getResource(CaminhoFXML.VIEW_ALTERAR_SENHA));
+            Stage novaJanela = new Stage();
+            novaJanela.initModality(Modality.APPLICATION_MODAL); // Torna modal
+            novaJanela.setTitle("Alterar Senha");
+            novaJanela.setScene(new Scene(root));
+            novaJanela.showAndWait(); // Espera a nova janela ser fechada para continuar
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

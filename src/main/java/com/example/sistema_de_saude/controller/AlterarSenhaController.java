@@ -4,13 +4,12 @@ import com.example.sistema_de_saude.dataAccess.PessoaDAO;
 import com.example.sistema_de_saude.dataAccess.UsuarioSistemaDAO;
 import com.example.sistema_de_saude.entity.Pessoa;
 import com.example.sistema_de_saude.entity.UsuarioSistema;
-import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.HashSenha;
-import com.example.sistema_de_saude.util.NavegadorTela;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class AlterarSenhaController {
 
@@ -29,9 +28,11 @@ public class AlterarSenhaController {
         }
 
         Pessoa pessoa = PessoaDAO.getInstance().findByCpf(cpf);
+
         if(pessoa == null){
             showAlert("CPF não encontrado!");
         } else {
+            usuario = pessoa.getFuncionario().getUser();
             pfNovaSenha.setDisable(false);
             pfConfirmarSenha.setDisable(false);
         }
@@ -39,7 +40,7 @@ public class AlterarSenhaController {
 
     @FXML
     public void atualizarSenha() {
-        if(usuario == null){
+        if (usuario == null) {
             showAlert("Primeiro verifique o CPF!");
             return;
         }
@@ -47,12 +48,12 @@ public class AlterarSenhaController {
         String novaSenha = pfNovaSenha.getText().trim();
         String confirmar = pfConfirmarSenha.getText().trim();
 
-        if(novaSenha.isEmpty() || confirmar.isEmpty()){
+        if (novaSenha.isEmpty() || confirmar.isEmpty()) {
             showAlert("Preencha todos os campos!");
             return;
         }
 
-        if(!novaSenha.equals(confirmar)){
+        if (!novaSenha.equals(confirmar)) {
             showAlert("Senhas não coincidem!");
             return;
         }
@@ -61,12 +62,16 @@ public class AlterarSenhaController {
             usuario.setSenha(HashSenha.gerarHash(novaSenha));
             UsuarioSistemaDAO.getInstance().merge(usuario);
             showAlert("Senha atualizada com sucesso!");
-            NavegadorTela.navegarPara(CaminhoFXML.LOGIN, usuario);
+
+            Stage stage = (Stage) tfCPF.getScene().getWindow();
+            stage.close();
+
         } catch (Exception e) {
             showAlert("Erro ao atualizar senha: " + e.getMessage());
             e.printStackTrace();
         }
     }
+
 
     private void showAlert(String msg){
         Alert alert = new Alert(Alert.AlertType.INFORMATION);

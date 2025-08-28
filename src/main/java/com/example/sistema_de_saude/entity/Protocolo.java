@@ -72,7 +72,7 @@ public class Protocolo {
     public void finalizarProtocolo(Farmaceutico farmaceutico, Date dataAtual){
         this.farmaceutico = farmaceutico;
         this.dataEntrega = dataAtual;
-        status = true;
+        status = false;
     };
 
 }

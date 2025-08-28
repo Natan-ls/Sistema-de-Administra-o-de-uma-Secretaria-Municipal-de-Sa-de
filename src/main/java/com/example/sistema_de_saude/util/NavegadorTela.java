@@ -24,7 +24,7 @@ public class NavegadorTela {
 
             Object controller = loader.getController();
             if (controller instanceof NavegadorPane np) {
-                np.setUsuario(usuario); // <- sem interface, usando a classe base
+                np.setUsuario(usuario);
             }
 
             stage.setScene(new Scene(root));

@@ -30,7 +30,7 @@ public class RecepcaoController extends NavegadorPane {
     }
 
     public void moduloPaciente(ActionEvent actionEvent) {
-        trocarPane(CaminhoFXML.PANE_PACIENTE);
+        trocarPane(CaminhoFXML.PANE_OPCOES_CRUD);
     }
 
 

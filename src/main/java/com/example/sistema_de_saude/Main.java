@@ -2,6 +2,9 @@ package com.example.sistema_de_saude;
 
 import com.example.sistema_de_saude.util.CaminhoFXML;
 import com.example.sistema_de_saude.util.NavegadorTela;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.Persistence;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;

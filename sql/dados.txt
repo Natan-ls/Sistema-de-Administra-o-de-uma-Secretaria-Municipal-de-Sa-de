@@ -1,0 +1,79 @@
+-- =========================
+-- USUÁRIOS DO SISTEMA
+-- =========================
++---------------------+----------+
+| login               | senha    |
++---------------------+----------+
+| joao.medico         | senha123 |
+| maria.medico        | senha123 |
+| pedro.medico        | senha123 |
+| lucas.medico        | senha123 |
+| carla.medico        | senha123 |
+| ana.farmaceutico    | senha123 |
+| carlos.farmaceutico | senha123 |
+| bruno.farmaceutico  | senha123 |
+| renata.farmaceutico | senha123 |
+| tiago.recepcionista | senha123 |
+| aline.recepcionista | senha123 |
+| admin.ti            | senha123 |
+| admin.rh            | senha123 |
++---------------------+----------+
+
+-- =========================
+-- PROTOCOLOS
+-- =========================
++-----------+
+| codigo    |
++-----------+
+| PROTO0001 |
+| PROTO0002 |
+| PROTO0003 |
+| PROTO0004 |
+| PROTO0005 |
+| PROTO0006 |
+| PROTO0007 |
+| PROTO0008 |
+| PROTO0009 |
+| PROTO0010 |
+| PROTO0011 |
+| PROTO0012 |
+| PROTO0013 |
+| PROTO0014 |
+| PROTO0015 |
+| PROTO0016 |
+| PROTO0017 |
+| PROTO0018 |
+| PROTO0019 |
+| PROTO0020 |
+| PROTO0021 |
+| PROTO0022 |
+| PROTO0023 |
+| PROTO0024 |
+| PROTO0025 |
+| PROTO0026 |
+| PROTO0027 |
+| PROTO0028 |
+| PROTO0029 |
+| PROTO0030 |
+| PROTO0031 |
+| PROTO0032 |
+| PROTO0033 |
+| PROTO0034 |
+| PROTO0035 |
+| PROTO0036 |
+| PROTO0037 |
+| PROTO0038 |
+| PROTO0039 |
+| PROTO0040 |
+| PROTO0041 |
+| PROTO0042 |
+| PROTO0043 |
+| PROTO0044 |
+| PROTO0045 |
+| PROTO0046 |
+| PROTO0047 |
+| PROTO0048 |
+| PROTO0049 |
+| PROTO0050 |
++-----------+
+

@@ -50,11 +50,8 @@ public class PaneAdicionarController extends NavegadorPane implements ReceberDad
         lbNomePaciente.setText(consulta.getPaciente().getPessoa().getNome());
     }
 
-    /**
-     * Adiciona um novo TextField de remédio ao VBox, com botão para remover
-     */
     public void addRemedio(ActionEvent actionEvent) {
-        HBox hbox = new HBox(5); // espaçamento entre TextField e botão
+        HBox hbox = new HBox(5);
         TextField novoRemedio = new TextField();
         novoRemedio.setPromptText("Pesquisar remédio");
         novoRemedio.setPrefWidth(tfRemedio.getPrefWidth());
@@ -67,9 +64,6 @@ public class PaneAdicionarController extends NavegadorPane implements ReceberDad
         vboxRemedios.getChildren().add(hbox);
     }
 
-    /**
-     * Gera o protocolo e associa à consulta atual
-     */
     public void gerarProtocolo(ActionEvent actionEvent) {
         if (vboxRemedios.getChildren().isEmpty()) {
             Alert alert = new Alert(Alert.AlertType.WARNING);
@@ -92,9 +86,6 @@ public class PaneAdicionarController extends NavegadorPane implements ReceberDad
         alert.showAndWait();
     }
 
-    /**
-     * Finaliza a consulta, associando protocolo e remédios, salvando no banco
-     */
     public void finalizarConsulta(ActionEvent actionEvent) {
         // Se protocolo foi gerado, garante que existe pelo menos um remédio
         if (protocolo != null && vboxRemedios.getChildren().isEmpty()) {
@@ -151,7 +142,6 @@ public class PaneAdicionarController extends NavegadorPane implements ReceberDad
         alert.setContentText("Consulta finalizada com sucesso!");
         alert.showAndWait();
 
-        // Volta para a tela de consultas
         trocarPane(CaminhoFXML.PANE_CONSULTAS);
     }
 

@@ -35,7 +35,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Button>
-                <Label fx:id="tfEsqueceuSenha" layoutX="165.0" layoutY="355.0" style="-fx-text-fill: #4180ab; -fx-font-size: 18px;" text="Esqueceu sua senha?" textFill="WHITE">
+                <Label fx:id="tfEsqueceuSenha" layoutX="165.0" layoutY="355.0" style="-fx-text-fill: #4180ab; -fx-font-size: 18px;" text="Esqueceu sua senha?" textFill="WHITE" onMouseClicked="#abrirTelaEsqueciSenha">
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font>
@@ -43,6 +43,7 @@
                         <Cursor fx:constant="HAND" />
                     </cursor>
                 </Label>
+
             </children></Pane>
         <Label layoutX="459.0" layoutY="19.0" text="S.A.S.M.S." textFill="WHITE">
             <font>

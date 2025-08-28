@@ -8,7 +8,7 @@
             <property name="jakarta.persistence.jdbc.url"
                       value="jdbc:mysql://localhost:3306/dbsistemasaude?useSSL=false&amp;allowPublicKeyRetrieval=true&amp;serverTimezone=UTC"/>
 
-            <property name="jakarta.persistence.jdbc.user" value="Admin"/>
+            <property name="jakarta.persistence.jdbc.user" value="admin"/>
             <property name="jakarta.persistence.jdbc.password" value="admin"/>
             <property name="jakarta.persistence.jdbc.driver" value="com.mysql.cj.jdbc.Driver"/>
 

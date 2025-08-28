@@ -35,7 +35,7 @@
                         <Label style="-fx-text-fill: #4180ab;" text="Nome medicamento">
                             <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <ChoiceBox fx:id="cbNomeRemedio" prefWidth="200.0" />
+                        <ChoiceBox fx:id="cbNomeRemedio" prefWidth="200.0" style="-fx-background-color: White; -fx-background-radius: 10;" />
                     </children>
                 </HBox>
 
@@ -45,17 +45,17 @@
                         <Label style="-fx-text-fill: #4180ab;" text="Tipo">
                             <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <ChoiceBox fx:id="cbTipoMedicamento" prefWidth="150.0" />
+                        <ChoiceBox fx:id="cbTipoMedicamento" prefWidth="150.0" style="-fx-background-color: White; -fx-background-radius: 10;" />
 
                         <Label style="-fx-text-fill: #4180ab;" text="Unidade">
                             <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <ChoiceBox fx:id="cbUnidadeMedida" prefWidth="100.0" />
+                        <ChoiceBox fx:id="cbUnidadeMedida" prefWidth="100.0" style="-fx-background-color: White; -fx-background-radius: 10;" />
 
                         <Label style="-fx-text-fill: #4180ab;" text="Qtd. Caixa">
                             <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <ChoiceBox fx:id="cbQuantidadeCaixa" prefWidth="100.0" />
+                        <ChoiceBox fx:id="cbQuantidadeCaixa" prefWidth="100.0" style="-fx-background-color: White; -fx-background-radius: 10;" />
                     </children>
                 </HBox>
 
@@ -66,13 +66,13 @@
                             <Label style="-fx-text-fill: #4180ab;" text="Data fabricação">
                                 <font><Font name="System Bold" size="25.0" /></font>
                             </Label>
-                            <DatePicker fx:id="dtFabricacao" />
+                            <DatePicker fx:id="dtFabricacao" style="-fx-background-color: White; -fx-background-radius: 10;" />
                         </VBox>
                         <VBox alignment="CENTER" spacing="5">
                             <Label style="-fx-text-fill: #4180ab;" text="Data validade">
                                 <font><Font name="System Bold" size="25.0" /></font>
                             </Label>
-                            <DatePicker fx:id="dtValidade" />
+                            <DatePicker fx:id="dtValidade" style="-fx-background-color: White; -fx-background-radius: 10;" />
                         </VBox>
                     </children>
                 </HBox>
@@ -83,7 +83,7 @@
                         <Label style="-fx-text-fill: #4180ab;" text="Quantidade">
                             <font><Font name="System Bold" size="25.0" /></font>
                         </Label>
-                        <TextField fx:id="tfQuantidade" prefWidth="150.0" promptText="Quantidade" />
+                        <TextField fx:id="tfQuantidade" prefWidth="150.0" promptText="Quantidade" style="-fx-background-radius: 10;" />
                     </children>
                 </HBox>
             </children>

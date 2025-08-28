@@ -19,7 +19,7 @@ public class TestJM {
         m1.setCrm("124567");
         m1.setEspecialidade("Cardio");
 
-        MedicoDAO.getInstance().persist(m1, p1);
+        //MedicoDAO.getInstance().persist(m1);
 
     }
 

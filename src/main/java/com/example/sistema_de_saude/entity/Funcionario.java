@@ -62,4 +62,12 @@ public class Funcionario {
     public Pessoa getPessoa() {
         return pessoa;
     }
+
+    public void setUser(UsuarioSistema user) {
+        this.user = user;
+    }
+
+    public UsuarioSistema getUser() {
+        return user;
+    }
 }

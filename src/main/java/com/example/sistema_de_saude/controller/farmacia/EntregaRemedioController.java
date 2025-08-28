@@ -101,7 +101,7 @@ public class EntregaRemedioController extends NavegadorPane {
             }
         });
 
-        // Coluna Quantidade entregue (TextField editável)
+        // Coluna Quantidade entregue
         colQuantidade.setCellValueFactory(cell -> cell.getValue().quantidadeProperty());
         colQuantidade.setCellFactory(TextFieldTableCell.forTableColumn(new StringConverter<>() {
             @Override
