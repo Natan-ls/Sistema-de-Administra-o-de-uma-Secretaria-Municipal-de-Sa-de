@@ -1,101 +1,214 @@
 # Sistema de Administração da Secretaria Municipal de Saúde
 
-O **Sistema de Administração da Secretaria Municipal de Saúde** é uma ferramenta para modernizar e informatizar os serviços prestados à população, com foco na gestão de pacientes, atendimentos médicos e controle de medicamentos.
+O **Sistema de Administração da Secretaria Municipal de Saúde** é uma aplicação desenvolvida em **Java com JavaFX**, voltada para a informatização de processos administrativos de uma secretaria municipal de saúde.
+
+O sistema permite o gerenciamento de:
+
+- pacientes
+- consultas médicas
+- medicamentos
+- funcionários
+- usuários do sistema
+
+O objetivo é **organizar e centralizar as informações do atendimento à população**, facilitando o controle de consultas, medicamentos e protocolos administrativos.
 
 ---
 
-## Documentação
+# Tecnologias Utilizadas
 
-A documentação completa do projeto está disponível [aqui](https://docs.google.com/document/d/1k_4-9Hlp13zN1V7pjtICOaSWSPFn-GHsY7ihz2S0kUE/edit?tab=t.0). Consulte para entender os requisitos, arquitetura e funcionamento de cada módulo.
+O projeto utiliza tecnologias comuns no desenvolvimento de aplicações backend Java:
+
+- Java 21
+- JavaFX
+- Hibernate (JPA)
+- PostgreSQL
+- Docker
+- Maven
+
+A aplicação utiliza o padrão **DAO (Data Access Object)** para organização da camada de persistência.
 
 ---
 
-## Pré-requisitos
+# Documentação
 
-Antes de rodar o sistema, certifique-se de ter instalado:
+A documentação completa do projeto está disponível no link abaixo:
 
-* **MySQL** no Linux.
-* **Maven** para compilar e executar o projeto JavaFX.
-* Acesso **root** ao MySQL.
+📄 https://docs.google.com/document/d/1k_4-9Hlp13zN1V7pjtICOaSWSPFn-GHsY7ihz2S0kUE
+
+Ela contém:
+
+- requisitos do sistema
+- modelagem de dados
+- descrição dos módulos
+- arquitetura do projeto
 
 ---
 
-## Configuração do Banco de Dados
+# Pré-requisitos
 
-### 1. Acessar o MySQL como root
+Antes de executar o projeto, é necessário ter instalado:
+
+- Java 21
+- Maven
+- Docker
+- Docker Compose
+
+---
+
+# Configuração do Ambiente
+
+O projeto utiliza **variáveis de ambiente** para configurar a conexão com o banco de dados.
+
+Primeiro copie o arquivo de exemplo:
 
 ```bash
-sudo mysql
+cp .env.example .env
+````
+
+Depois preencha as variáveis no arquivo `.env`.
+
+Exemplo:
+
+```env
+POSTGRES_USER=seu_usuario
+POSTGRES_PASSWORD=sua_senha
+POSTGRES_DB=nome_db
+POSTGRES_PORT=5432
+POSTGRES_HOST=localhost
 ```
 
-### 2. Criar o banco de dados e o usuário
-
-No prompt do MySQL, execute:
-
-```sql
--- Cria o banco de dados
-CREATE DATABASE dbsistemasaude CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-
--- Cria o usuário 'admin' com senha 'admin'
-CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin';
-
--- Concede todos os privilégios no banco 'dbsistemasaude' ao usuário 'admin'
-GRANT ALL PRIVILEGES ON dbsistemasaude.* TO 'admin'@'localhost';
-
--- Aplica as alterações
-FLUSH PRIVILEGES;
-
--- Opcional: verifica os privilégios do usuário
-SHOW GRANTS FOR 'admin'@'localhost';
-```
-
-### 3. Sair do MySQL
-
-```sql
-EXIT;
-```
-
-### 4. Importar o backup do banco de dados
-
-O backup do banco está localizado na pasta `sql` do projeto. Execute:
-
-```bash
-mysql -u admin -p dbsistemasaude < sql/dbsistemasaude.sql
-```
-
-Digite a senha do usuário `admin` quando solicitado.
+Essas variáveis são carregadas na aplicação utilizando a biblioteca **dotenv-java**.
 
 ---
 
-## Configuração do Projeto JavaFX
+# Subindo o Banco de Dados com Docker
 
-### 5. Compilar o projeto e baixar dependências
+O banco de dados PostgreSQL é executado em um container Docker.
 
-No terminal, na raiz do projeto, execute:
+Na raiz do projeto execute:
+
+```bash
+docker compose up -d
+```
+
+Esse comando irá:
+
+* baixar a imagem do PostgreSQL
+* criar o container
+* iniciar o banco automaticamente
+* executar o script de inicialização do banco
+
+Para verificar se o container está rodando:
+
+```bash
+docker ps
+```
+
+---
+
+# Inicialização do Banco
+
+O banco de dados é inicializado automaticamente através do script:
+
+```
+init.sql
+```
+
+Esse script cria:
+
+* tabelas do sistema
+* relacionamentos
+* dados iniciais para testes
+
+---
+
+# Compilando o Projeto
+
+Na raiz do projeto execute:
 
 ```bash
 mvn clean install
 ```
 
-### 6. Executar a aplicação
+Isso irá:
+
+* baixar as dependências
+* compilar o projeto
+* preparar a aplicação para execução
+
+---
+
+# Executando a Aplicação
+
+Para iniciar o sistema:
 
 ```bash
 mvn javafx:run
 ```
 
 ---
-### 7. Dados de teste
 
-Os logins, senhas e números de protocolos para testes estão disponíveis no arquivo:
+# Estrutura de Configuração do Banco
 
-```bash
-sql/dados.txt
+O projeto utiliza **dotenv** para carregar as variáveis de ambiente no Java.
+
+Arquivos importantes dessa configuração:
+
 ```
+.env
+.env.example
+docker-compose.yml
+init.sql
+persistence.xml
+Conexao.java
+EntityManagerUtil.java
+```
+
+Essa abordagem evita **credenciais hardcoded no código** e facilita a configuração do ambiente.
 
 ---
 
-## Observações
+# Dados de Teste
 
-* Todos os comandos devem ser executados a partir da raiz do projeto.
-* Certifique-se de que o MySQL está rodando antes de importar o banco ou iniciar a aplicação.
-* O usuário criado (`admin`) possui todos os privilégios no banco `dbsistemasaude`.
+Alguns dados de teste (logins, senhas e protocolos) estão disponíveis no arquivo:
+
+```
+sql/dados.txt
+```
+
+Eles podem ser utilizados para navegar pelas funcionalidades do sistema.
+
+---
+
+# Funcionalidades do Sistema
+
+O sistema possui módulos para:
+
+* cadastro de pacientes
+* agendamento e controle de consultas
+* controle de medicamentos
+* gerenciamento de funcionários
+* administração do sistema
+
+---
+
+
+# Aprendizados com o Projeto
+
+Durante o desenvolvimento e refatoração do projeto foram trabalhados conceitos como:
+
+* arquitetura em camadas
+* DAO Pattern
+* integração com banco relacional
+* uso de ORM com Hibernate
+* configuração via variáveis de ambiente
+* containerização com Docker
+
+---
+
+# Observações
+
+* Todos os comandos devem ser executados a partir da **raiz do projeto**.
+* Certifique-se de que o **Docker está rodando** antes de iniciar o banco.
+* O banco de dados será criado automaticamente ao subir o container.
+
