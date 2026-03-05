@@ -4,6 +4,7 @@ import com.example.sistema_de_saude.entity.Administrador;
 import com.example.sistema_de_saude.entity.Pessoa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.util.EntityManagerUtil;
 
 import java.util.List;
 //Testando git
@@ -19,7 +20,7 @@ public class AdministradorDAO {
         return instance;
     }
     private AdministradorDAO() {
-        entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+        entityManager = EntityManagerUtil.getEntityManager();
     }
     public Administrador getById(int id) {
         return entityManager.find(Administrador.class, id);

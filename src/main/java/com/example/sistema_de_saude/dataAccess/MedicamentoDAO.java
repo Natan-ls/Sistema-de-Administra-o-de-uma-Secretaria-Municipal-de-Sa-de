@@ -3,6 +3,7 @@ package com.example.sistema_de_saude.dataAccess;
 import com.example.sistema_de_saude.entity.Medicamento;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.util.EntityManagerUtil;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class MedicamentoDAO {
         return instance;
     }
     private MedicamentoDAO() {
-        entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+        entityManager = EntityManagerUtil.getEntityManager();
     }
     public Medicamento getById(int id) {
         return entityManager.find(Medicamento.class, id);

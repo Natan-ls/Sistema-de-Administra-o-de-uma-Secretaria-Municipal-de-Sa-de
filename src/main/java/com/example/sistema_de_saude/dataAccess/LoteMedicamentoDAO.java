@@ -5,6 +5,7 @@ import com.example.sistema_de_saude.entity.LoteMedicamento;
 import com.example.sistema_de_saude.entity.Protocolo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.util.EntityManagerUtil;
 
 import java.util.List;
 
@@ -25,7 +26,7 @@ public class LoteMedicamentoDAO {
         return instance;
     }
     private LoteMedicamentoDAO() {
-        entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+        entityManager = EntityManagerUtil.getEntityManager();
     }
     public LoteMedicamento getById(int id) {
         return entityManager.find(LoteMedicamento.class, id);

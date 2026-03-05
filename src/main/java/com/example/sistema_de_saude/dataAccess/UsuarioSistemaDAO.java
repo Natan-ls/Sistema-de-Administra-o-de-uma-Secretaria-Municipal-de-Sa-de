@@ -6,6 +6,7 @@ import com.example.sistema_de_saude.entity.UsuarioSistema;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.util.EntityManagerUtil;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class UsuarioSistemaDAO {
         return instance;
     }
     private UsuarioSistemaDAO() {
-        entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+        entityManager = EntityManagerUtil.getEntityManager();
     }
     public UsuarioSistema getById(int id) {
         return entityManager.find(UsuarioSistema.class, id);

@@ -1,10 +1,12 @@
 module com.example.sistema_de_saude {
-    // Módulos Java necessários
+
+    // Java base
     requires java.sql;
     requires java.naming;
     requires java.desktop;
+    requires java.rmi;
 
-    // Módulos JavaFX
+    // JavaFX
     requires javafx.controls;
     requires javafx.fxml;
     requires javafx.graphics;
@@ -13,22 +15,29 @@ module com.example.sistema_de_saude {
     requires jakarta.persistence;
     requires org.hibernate.orm.core;
 
-    // MySQL Connector
-    requires mysql.connector.j;
-    requires java.rmi;
+    // PostgreSQL driver
+    requires org.postgresql.jdbc;
+
+    // BCrypt
     requires jbcrypt;
 
-    // ABERTURAS PARA REFLECTION (Hibernate e JavaFX FXMLLoader)
+    // Dotenv
+    requires io.github.cdimascio.dotenv.java;
+
+
+    // =========================
+    // OPENS (reflection)
+    // =========================
+
     opens com.example.sistema_de_saude to
-            org.hibernate.orm.core,
-            javafx.fxml;
+            javafx.fxml,
+            org.hibernate.orm.core;
 
     opens com.example.sistema_de_saude.entity to
             org.hibernate.orm.core,
             jakarta.persistence;
 
-    opens com.example.sistema_de_saude.controller to
-            javafx.fxml;
+    opens com.example.sistema_de_saude.controller to javafx.fxml;
 
     opens com.example.sistema_de_saude.controller.agendamento to javafx.fxml;
     opens com.example.sistema_de_saude.controller.recepcao to javafx.fxml;
@@ -38,7 +47,11 @@ module com.example.sistema_de_saude {
     opens com.example.sistema_de_saude.util to javafx.fxml;
     opens com.example.sistema_de_saude.views to javafx.fxml;
 
-    // EXPORTS - pacotes públicos do módulo
+
+    // =========================
+    // EXPORTS
+    // =========================
+
     exports com.example.sistema_de_saude;
     exports com.example.sistema_de_saude.entity;
     exports com.example.sistema_de_saude.dataAccess;
@@ -46,8 +59,7 @@ module com.example.sistema_de_saude {
     exports com.example.sistema_de_saude.controller.recepcao;
     exports com.example.sistema_de_saude.controller.consulta;
     exports com.example.sistema_de_saude.controller.farmacia;
-    exports com.example.sistema_de_saude.util;
     exports com.example.sistema_de_saude.controller.adiministracao;
     exports com.example.sistema_de_saude.controller.agendamento;
-
+    exports com.example.sistema_de_saude.util;
 }

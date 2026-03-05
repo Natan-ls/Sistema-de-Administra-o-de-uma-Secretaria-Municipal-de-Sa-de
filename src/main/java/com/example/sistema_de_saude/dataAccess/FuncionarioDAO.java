@@ -5,6 +5,7 @@ import com.example.sistema_de_saude.entity.Pessoa;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.Persistence;
+import com.example.sistema_de_saude.util.EntityManagerUtil;
 
 import java.util.List;
 
@@ -20,7 +21,7 @@ public class FuncionarioDAO {
         return instance;
     }
     private FuncionarioDAO() {
-        entityManager = Persistence.createEntityManagerFactory("sistemasaudePU").createEntityManager();
+        entityManager = EntityManagerUtil.getEntityManager();
     }
     public Funcionario getById(int id) {
         return entityManager.find(Funcionario.class, id);
